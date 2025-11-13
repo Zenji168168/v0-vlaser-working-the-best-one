@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Vlaser logo simplified for favicon -->
+  <rect width="256" height="256" fill="#ffffff"/>
+  <!-- Red dotted sphere -->
+  <circle cx="80" cy="128" r="60" fill="none" stroke="#a74444" stroke-width="8"/>
+  <circle cx="85" cy="100" r="5" fill="#a74444"/>
+  <circle cx="95" cy="85" r="5" fill="#a74444"/>
+  <circle cx="110" cy="75" r="5" fill="#a74444"/>
+  <circle cx="90" cy="115" r="5" fill="#a74444"/>
+  <circle cx="100" cy="130" r="5" fill="#a74444"/>
+  <circle cx="75" cy="145" r="5" fill="#a74444"/>
+  <!-- VLASER text mark -->
+  <text x="140" y="150" font-size="48" font-weight="bold" fill="#000000" font-family="Arial">V</text>
+</svg>
