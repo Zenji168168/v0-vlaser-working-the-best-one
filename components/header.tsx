@@ -26,7 +26,7 @@ export default function Header() {
             </div>
             <div className="hidden md:block">
               <div
-                className="text-xs font-bold text-foreground/60 group-hover:text-accent transition-colors"
+                className="text-base font-bold text-foreground group-hover:text-accent transition-colors"
                 style={{ fontFamily: "var(--font-khmer)" }}
               >
                 វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក
