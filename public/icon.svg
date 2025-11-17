@@ -1,14 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <!-- Vlaser logo simplified for favicon -->
-  <rect width="256" height="256" fill="#ffffff"/>
-  <!-- Red dotted sphere -->
-  <circle cx="80" cy="128" r="60" fill="none" stroke="#a74444" stroke-width="8"/>
-  <circle cx="85" cy="100" r="5" fill="#a74444"/>
-  <circle cx="95" cy="85" r="5" fill="#a74444"/>
-  <circle cx="110" cy="75" r="5" fill="#a74444"/>
-  <circle cx="90" cy="115" r="5" fill="#a74444"/>
-  <circle cx="100" cy="130" r="5" fill="#a74444"/>
-  <circle cx="75" cy="145" r="5" fill="#a74444"/>
-  <!-- VLASER text mark -->
-  <text x="140" y="150" font-size="48" font-weight="bold" fill="#000000" font-family="Arial">V</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B2E2E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C44545;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Updated to represent full Vlaser logo with proper sphere pattern -->
+  <!-- Red dotted sphere pattern -->
+  <circle cx="20" cy="30" r="3" fill="#c53030"/>
+  <circle cx="35" cy="25" r="3" fill="#c53030"/>
+  <circle cx="50" cy="22" r="3" fill="#c53030"/>
+  <circle cx="65" cy="25" r="3" fill="#c53030"/>
+  <circle cx="80" cy="30" r="3" fill="#c53030"/>
+  
+  <circle cx="15" cy="40" r="3" fill="#c53030"/>
+  <circle cx="28" cy="35" r="3" fill="#c53030"/>
+  <circle cx="42" cy="32" r="3" fill="#c53030"/>
+  <circle cx="58" cy="32" r="3" fill="#c53030"/>
+  <circle cx="72" cy="35" r="3" fill="#c53030"/>
+  <circle cx="85" cy="40" r="3" fill="#c53030"/>
+  
+  <circle cx="12" cy="52" r="3" fill="#c53030"/>
+  <circle cx="24" cy="48" r="3" fill="#c53030"/>
+  <circle cx="38" cy="45" r="3" fill="#c53030"/>
+  <circle cx="50" cy="43" r="3" fill="#c53030"/>
+  <circle cx="62" cy="45" r="3" fill="#c53030"/>
+  <circle cx="76" cy="48" r="3" fill="#c53030"/>
+  <circle cx="88" cy="52" r="3" fill="#c53030"/>
+  
+  <!-- V letter for Vlaser -->
+  <path d="M 30 60 L 45 85 L 50 85 L 38 60 Z" fill="#2d3748"/>
+  <path d="M 62 60 L 50 85 L 55 85 L 70 60 Z" fill="#2d3748"/>
 </svg>

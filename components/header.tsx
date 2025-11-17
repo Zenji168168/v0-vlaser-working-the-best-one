@@ -2,11 +2,22 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import QRModal from "./qr-modal"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isQRModalOpen, setIsQRModalOpen] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const navLinks = [
     { name: "Home", href: "#hero" },
@@ -16,74 +27,86 @@ export default function Header() {
     { name: "Contact", href: "#contact" },
   ]
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href)
+    element?.scrollIntoView({ behavior: "smooth" })
+    setIsMenuOpen(false)
+  }
+
   return (
-    <header className="sticky top-0 z-40 bg-card/70 backdrop-blur-xl border-b border-border shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-12 h-12 rounded-lg overflow-hidden">
-              <Image src="/vlaser-logo.png" alt="Vlaser Logo" width={48} height={48} className="object-contain" />
-            </div>
-            <div className="hidden md:block">
-              <div
-                className="text-base font-bold text-foreground group-hover:text-accent transition-colors"
-                style={{ fontFamily: "var(--font-khmer)" }}
-              >
-                វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក
+    <>
+      <header
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? "bg-white/80 backdrop-blur-xl shadow-sm border-b border-gray-100" 
+            : "bg-white"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden transform group-hover:scale-105 transition-transform duration-300">
+                <Image src="/vlaser-logo.png" alt="Vlaser Logo" width={48} height={48} className="object-contain" />
               </div>
-              <div className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">
-                Vlaser Solution Cambodia Co., Ltd
+              <div className="hidden md:block">
+                <div className="text-base font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក
+                </div>
+                <div className="text-sm font-semibold text-gray-600 group-hover:text-blue-500 transition-colors">
+                  Vlaser Solution Cambodia Co., Ltd
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-foreground/70 hover:text-accent transition-colors duration-300"
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-4">
+              <Button
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 hover:scale-105 transition-all duration-300"
+                onClick={() => setIsQRModalOpen(true)}
               >
-                {link.name}
-              </a>
-            ))}
-          </nav>
+                Contact
+              </Button>
+            </div>
 
-          {/* Contact Button */}
-          <div className="flex items-center gap-4">
-            <Button
-              size="sm"
-              className="bg-accent hover:bg-accent/90 text-white font-medium"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-            >
-              Contact
-            </Button>
+            {/* Mobile Menu Button */}
+            <button className="md:hidden text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button className="md:hidden text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+          {/* Mobile Navigation */}
+          {isMenuOpen && (
+            <nav className="md:hidden mt-4 pb-4 border-t border-border">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="block py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </nav>
+          )}
         </div>
+      </header>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-border">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-        )}
-      </div>
-    </header>
+      <QRModal isOpen={isQRModalOpen} onClose={() => setIsQRModalOpen(false)} />
+    </>
   )
 }

@@ -14,19 +14,24 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(false)
+    setTimeout(() => setIsLoading(false), 800)
   }, [])
 
   if (isLoading) {
     return (
       <div className="fixed inset-0 bg-background flex items-center justify-center z-50">
-        <div className="animate-glow-text text-4xl font-bold text-accent">VLASER</div>
+        <div className="text-center space-y-4">
+          <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary animate-glow">
+            VLASER
+          </div>
+          <div className="text-sm text-foreground/60 animate-pulse">Loading your digital future...</div>
+        </div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative">
+    <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
       <AnimatedBackground />
       <Header />
       <Hero />
