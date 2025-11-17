@@ -15,13 +15,21 @@ const clients = [
 ]
 
 export default function Clients() {
-  const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
+  const { ref, inView } = useInView({ 
+    threshold: 0.1, 
+    triggerOnce: true,
+    rootMargin: "0px 0px -100px 0px"
+  })
 
   return (
-    <section id="clients" ref={ref} className="py-32 bg-white relative">
+    <section id="clients" ref={ref} className="py-32 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-100/30 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-purple-100/30 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+      </div>
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className={`text-center mb-20 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`text-center mb-20 ${inView ? "animate-reveal-blur" : "opacity-0"}`}>
           <div className="flex items-center justify-center gap-3 mb-4">
             <Building2 className="w-12 h-12 text-blue-600" />
           </div>
@@ -33,15 +41,19 @@ export default function Clients() {
           {clients.map((client, index) => (
             <div
               key={index}
-              className={`bg-white p-8 rounded-2xl shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-blue-200/50 hover:-translate-y-2 transition-all duration-300 text-center group cursor-pointer ${
+              className={`bg-white p-8 rounded-2xl shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-blue-200/60 hover:-translate-y-3 hover:scale-105 transition-all duration-500 text-center group cursor-pointer relative overflow-hidden ${
                 inView ? "animate-slide-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${index * 80}ms` }}
+              style={{ animationDelay: `${index * 70}ms` }}
             >
-              <div className="text-3xl mb-4 group-hover:scale-110 transition-transform">🏢</div>
-              <p className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
-                {client}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-blue-50/0 group-hover:from-blue-50/50 group-hover:via-blue-50/30 group-hover:to-blue-50/50 transition-all duration-500" />
+              
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500">🏢</div>
+                <p className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 leading-relaxed">
+                  {client}
+                </p>
+              </div>
             </div>
           ))}
         </div>

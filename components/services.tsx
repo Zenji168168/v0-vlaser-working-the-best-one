@@ -47,17 +47,22 @@ const services = [
 ]
 
 export default function Services() {
-  const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true })
+  const { ref, inView } = useInView({ 
+    threshold: 0.05, 
+    triggerOnce: true,
+    rootMargin: "0px 0px -80px 0px"
+  })
 
   return (
-    <section id="services" ref={ref} className="py-32 bg-gray-50 relative">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none parallax">
-        <div className="absolute top-1/4 left-10 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
+    <section id="services" ref={ref} className="py-32 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-300/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className={`text-center mb-20 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
+        <div className={`text-center mb-20 ${inView ? "animate-reveal-blur" : "opacity-0"}`}>
           <h2 className="text-5xl font-bold text-gray-900 mb-6">Our Services</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Comprehensive IT solutions tailored to your business needs
@@ -70,20 +75,24 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`group p-8 rounded-2xl bg-white shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-500 cursor-pointer hover:-translate-y-3 ${
+                className={`group p-8 rounded-2xl bg-white shadow-lg shadow-gray-200/50 hover:shadow-2xl hover:shadow-blue-200/60 transition-all duration-500 cursor-pointer hover:-translate-y-4 hover:scale-105 relative overflow-hidden ${
                   inView ? "animate-slide-up" : "opacity-0"
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
+                style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <Icon className="w-12 h-12 text-blue-600" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/0 group-hover:via-blue-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative z-10">
+                  <div className="mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                    <Icon className="w-12 h-12 text-blue-600 group-hover:text-blue-700" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 group-hover:text-gray-900 transition-colors duration-300">
-                  {service.description}
-                </p>
               </div>
             )
           })}
