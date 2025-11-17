@@ -6,11 +6,8 @@ import { Building2 } from 'lucide-react'
 const clients = [
   "MONY Clinic",
   "MEGABELLE BEAUTY CLINIC",
-  "THE ADDRESS",
   "AMATA RESIDENCE",
-  "V Hotel Phnom Penh",
   "Ohana Hotel",
-  "Panhavuth Dental Clinic",
   "SENGHAN CO., LTD",
 ]
 
