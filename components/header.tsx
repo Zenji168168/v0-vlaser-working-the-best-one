@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
+import { usePathname, useRouter } from 'next/navigation'
 import { Button } from "@/components/ui/button"
 import QRModal from "./qr-modal"
 
@@ -10,6 +11,8 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isQRModalOpen, setIsQRModalOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,8 +32,14 @@ export default function Header() {
   ]
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    element?.scrollIntoView({ behavior: "smooth" })
+    if (pathname === '/') {
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    } else {
+      router.push(`/${href}`)
+    }
     setIsMenuOpen(false)
   }
 
@@ -116,13 +125,13 @@ export default function Header() {
                     {link.name}
                   </Link>
                 ) : (
-                  <a
+                  <button
                     key={link.name}
-                    href={link.href}
-                    className="block py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
+                    onClick={() => scrollToSection(link.href)}
+                    className="block w-full text-left py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 )
               ))}
             </nav>
