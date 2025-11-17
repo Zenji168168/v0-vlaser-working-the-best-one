@@ -83,7 +83,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-gray-200 pt-8 text-center">
           <p className="text-sm text-gray-500">
-            © {currentYear} Vlaser Solution Cambodia Co., Ltd. All rights reserved.
+            © {currentYear} ក្រុមហ៊ុន វីឡាសឺ សឹលូសិន ខេមបូឌា ឯ.ក. All rights reserved.
           </p>
           <div className="flex justify-center gap-6 mt-4 text-xs text-gray-400">
             <Link href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>

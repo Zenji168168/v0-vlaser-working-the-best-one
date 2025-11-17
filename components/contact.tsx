@@ -38,7 +38,7 @@ export default function Contact() {
                   {
                     icon: Facebook,
                     label: "Facebook",
-                    value: "VLaser Solution Cambodia Co., Ltd",
+                    value: "ក្រុមហ៊ុន វីឡាសឺ សឹលូសិន ខេមបូឌា ឯ.ក",
                   },
                 ].map((item, i) => {
                   const Icon = item.icon

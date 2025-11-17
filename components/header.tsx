@@ -64,9 +64,10 @@ export default function Header() {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  className="relative text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-110 group"
                 >
                   {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300 ease-out"></span>
                 </button>
               ))}
             </nav>
