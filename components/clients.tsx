@@ -9,6 +9,9 @@ const clients = [
   "AMATA RESIDENCE",
   "Ohana Hotel",
   "SENGHAN CO., LTD",
+  "Caltex Station Sensok",
+  "ផ្សារលើក្រុងកំពុងឆ្នាំង",
+  "ផ្សារស្រែអំបិលខេត្តកោះកុង",
 ]
 
 export default function Clients() {
