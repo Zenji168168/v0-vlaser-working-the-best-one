@@ -2,12 +2,24 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const pathname = usePathname()
+  const router = useRouter()
 
-  const scrollToSection = (href: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+  const handleNavigation = (link: string) => {
+    if (link === "Portfolio") {
+      router.push("/portfolio")
+    } else {
+      const sectionId = `#${link.toLowerCase()}`
+      if (pathname !== "/") {
+        router.push(`/${sectionId}`)
+      } else {
+        document.querySelector(sectionId)?.scrollIntoView({ behavior: "instant" })
+      }
+    }
   }
 
   return (
@@ -32,10 +44,10 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-6 text-lg">Quick Links</h3>
             <ul className="space-y-3">
-              {["Home", "About", "Services", "Contact"].map((link) => (
+              {["Home", "About", "Services", "Portfolio", "Contact"].map((link) => (
                 <li key={link}>
                   <button
-                    onClick={() => scrollToSection(`#${link.toLowerCase()}`)}
+                    onClick={() => handleNavigation(link)}
                     className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:translate-x-2 inline-block"
                   >
                     → {link}

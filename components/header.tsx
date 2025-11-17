@@ -35,10 +35,16 @@ export default function Header() {
     if (pathname === '/') {
       const element = document.querySelector(href)
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "start" })
+        element.scrollIntoView({ behavior: "instant", block: "start" })
       }
     } else {
       router.push(`/${href}`)
+      requestAnimationFrame(() => {
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: "instant", block: "start" })
+        }
+      })
     }
     setIsMenuOpen(false)
   }
