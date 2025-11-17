@@ -1,20 +1,10 @@
 "use client"
 
-import { useState } from "react"
 import { useInView } from "react-intersection-observer"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Facebook } from 'lucide-react'
 
 export default function Contact() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true })
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("[v0] Form submitted:", formData)
-  }
 
   return (
     <section id="contact" ref={ref} className="py-32 bg-gray-50 relative">
@@ -24,63 +14,8 @@ export default function Contact() {
           <p className="text-xl text-gray-600">We'd love to hear from you. Reach out to us today.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className={`bg-white p-10 rounded-2xl shadow-xl shadow-gray-200/50 ${inView ? "animate-slide-up" : "opacity-0"}`}>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-900">Name</label>
-                <Input
-                  type="text"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="bg-gray-50 border-gray-200 focus:border-blue-600 focus:ring-blue-600 transition-all duration-300"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-900">Email</label>
-                <Input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="bg-gray-50 border-gray-200 focus:border-blue-600 focus:ring-blue-600 transition-all duration-300"
-                  required
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-gray-900">Message</label>
-                <Textarea
-                  placeholder="Tell us about your project..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="bg-gray-50 border-gray-200 focus:border-blue-600 focus:ring-blue-600 transition-all duration-300 min-h-[150px]"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-6 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 hover:scale-105 transition-all duration-300"
-              >
-                Send Message
-              </Button>
-            </form>
-
-            <div className="mt-6">
-              <Button
-                variant="outline"
-                className="w-full border-2 border-gray-300 hover:border-gray-400 bg-white hover:bg-gray-50 text-gray-900 font-medium py-6 hover:scale-105 transition-all duration-300"
-                onClick={() => window.open("https://wa.me/85596666954", "_blank")}
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Contact via WhatsApp
-              </Button>
-            </div>
-          </div>
-
-          {/* Contact Information */}
-          <div className={`space-y-8 ${inView ? "animate-slide-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
+        <div className="max-w-2xl mx-auto">
+          <div className={`space-y-8 ${inView ? "animate-slide-up" : "opacity-0"}`}>
             <div className="bg-white p-8 rounded-2xl shadow-xl shadow-gray-200/50">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
               <div className="space-y-6">
