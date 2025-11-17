@@ -1,51 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Updated SVG to better represent Vlaser logo with red dotted sphere -->
+  <!-- Updated to better match Vlaser logo with crescent sphere and V lettering -->
   <defs>
-    <radialGradient id="sphereGrad" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#E53E3E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#9B2C2C;stop-opacity:1" />
+    <radialGradient id="sphereGrad" cx="40%" cy="40%">
+      <stop offset="0%" style="stop-color:#B83A3A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7D2828;stop-opacity:1" />
     </radialGradient>
   </defs>
   
-  <!-- Background sphere gradient -->
-  <circle cx="50" cy="50" r="48" fill="url(#sphereGrad)" opacity="0.2"/>
+  <!-- Crescent dotted sphere pattern -->
+  <circle cx="22" cy="28" r="2.2" fill="#7D2828"/>
+  <circle cx="30" cy="24" r="2.5" fill="#8B3333"/>
+  <circle cx="40" cy="22" r="2.8" fill="#9B3E3E"/>
+  <circle cx="50" cy="21" r="3" fill="#B83A3A"/>
+  <circle cx="60" cy="22" r="2.8" fill="#9B3E3E"/>
   
-  <!-- Dotted sphere pattern representing Vlaser's distinctive globe -->
-  <circle cx="25" cy="30" r="2.5" fill="#9B2C2C"/>
-  <circle cx="38" cy="26" r="2.5" fill="#9B2C2C"/>
-  <circle cx="50" cy="24" r="2.5" fill="#9B2C2C"/>
-  <circle cx="62" cy="26" r="2.5" fill="#9B2C2C"/>
-  <circle cx="75" cy="30" r="2.5" fill="#9B2C2C"/>
+  <circle cx="18" cy="35" r="2.5" fill="#8B3333"/>
+  <circle cx="27" cy="31" r="2.8" fill="#9B3E3E"/>
+  <circle cx="37" cy="29" r="3" fill="#B83A3A"/>
+  <circle cx="48" cy="28" r="3.2" fill="#C54545"/>
+  <circle cx="58" cy="29" r="3" fill="#B83A3A"/>
+  <circle cx="68" cy="31" r="2.8" fill="#9B3E3E"/>
   
-  <circle cx="20" cy="40" r="2.5" fill="#C53030"/>
-  <circle cx="32" cy="36" r="2.5" fill="#C53030"/>
-  <circle cx="44" cy="34" r="2.5" fill="#C53030"/>
-  <circle cx="56" cy="34" r="2.5" fill="#C53030"/>
-  <circle cx="68" cy="36" r="2.5" fill="#C53030"/>
-  <circle cx="80" cy="40" r="2.5" fill="#C53030"/>
+  <circle cx="15" cy="43" r="2.8" fill="#9B3E3E"/>
+  <circle cx="24" cy="39" r="3" fill="#B83A3A"/>
+  <circle cx="34" cy="37" r="3.2" fill="#C54545"/>
+  <circle cx="45" cy="36" r="3.5" fill="#D54F4F"/>
+  <circle cx="56" cy="37" r="3.2" fill="#C54545"/>
+  <circle cx="66" cy="39" r="3" fill="#B83A3A"/>
+  <circle cx="76" cy="43" r="2.8" fill="#9B3E3E"/>
   
-  <circle cx="17" cy="50" r="2.5" fill="#E53E3E"/>
-  <circle cx="28" cy="47" r="2.5" fill="#E53E3E"/>
-  <circle cx="39" cy="45" r="2.5" fill="#E53E3E"/>
-  <circle cx="50" cy="44" r="2.5" fill="#E53E3E"/>
-  <circle cx="61" cy="45" r="2.5" fill="#E53E3E"/>
-  <circle cx="72" cy="47" r="2.5" fill="#E53E3E"/>
-  <circle cx="83" cy="50" r="2.5" fill="#E53E3E"/>
+  <circle cx="13" cy="52" r="3" fill="#B83A3A"/>
+  <circle cx="22" cy="49" r="3.2" fill="#C54545"/>
+  <circle cx="32" cy="47" r="3.5" fill="#D54F4F"/>
+  <circle cx="43" cy="46" r="3.8" fill="#E55555"/>
+  <circle cx="54" cy="47" r="3.5" fill="#D54F4F"/>
+  <circle cx="64" cy="49" r="3.2" fill="#C54545"/>
+  <circle cx="74" cy="52" r="3" fill="#B83A3A"/>
+  <circle cx="82" cy="56" r="2.5" fill="#9B3E3E"/>
   
-  <circle cx="20" cy="60" r="2.5" fill="#C53030"/>
-  <circle cx="32" cy="58" r="2.5" fill="#C53030"/>
-  <circle cx="44" cy="56" r="2.5" fill="#C53030"/>
-  <circle cx="56" cy="56" r="2.5" fill="#C53030"/>
-  <circle cx="68" cy="58" r="2.5" fill="#C53030"/>
-  <circle cx="80" cy="60" r="2.5" fill="#C53030"/>
+  <circle cx="15" cy="62" r="2.8" fill="#9B3E3E"/>
+  <circle cx="24" cy="60" r="3" fill="#B83A3A"/>
+  <circle cx="34" cy="59" r="3.2" fill="#C54545"/>
+  <circle cx="45" cy="58" r="3.5" fill="#D54F4F"/>
+  <circle cx="56" cy="59" r="3.2" fill="#C54545"/>
+  <circle cx="66" cy="60" r="3" fill="#B83A3A"/>
+  <circle cx="76" cy="62" r="2.8" fill="#9B3E3E"/>
   
-  <circle cx="25" cy="70" r="2.5" fill="#9B2C2C"/>
-  <circle cx="38" cy="68" r="2.5" fill="#9B2C2C"/>
-  <circle cx="50" cy="67" r="2.5" fill="#9B2C2C"/>
-  <circle cx="62" cy="68" r="2.5" fill="#9B2C2C"/>
-  <circle cx="75" cy="70" r="2.5" fill="#9B2C2C"/>
+  <circle cx="18" cy="70" r="2.5" fill="#8B3333"/>
+  <circle cx="27" cy="68" r="2.8" fill="#9B3E3E"/>
+  <circle cx="37" cy="67" r="3" fill="#B83A3A"/>
+  <circle cx="48" cy="66" r="3.2" fill="#C54545"/>
+  <circle cx="58" cy="67" r="3" fill="#B83A3A"/>
+  <circle cx="68" cy="68" r="2.8" fill="#9B3E3E"/>
   
-  <!-- Stylized "V" for Vlaser in the center -->
-  <path d="M 35 45 L 45 60 L 50 60 L 42 45 Z" fill="#2D3748" opacity="0.9"/>
-  <path d="M 58 45 L 50 60 L 55 60 L 65 45 Z" fill="#2D3748" opacity="0.9"/>
+  <circle cx="22" cy="77" r="2.2" fill="#7D2828"/>
+  <circle cx="30" cy="75" r="2.5" fill="#8B3333"/>
+  <circle cx="40" cy="74" r="2.8" fill="#9B3E3E"/>
+  <circle cx="50" cy="73" r="3" fill="#B83A3A"/>
+  <circle cx="60" cy="74" r="2.8" fill="#9B3E3E"/>
 </svg>
