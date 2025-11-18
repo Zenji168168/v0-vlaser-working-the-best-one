@@ -67,15 +67,15 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
-        {/* Floating blur blobs */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "5s" }} />
-        <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-indigo-300/15 rounded-full blur-3xl animate-float" style={{ animationDelay: "2.5s" }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/40 to-purple-50/30">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-blue-400/30 to-indigo-400/20 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-purple-400/30 to-pink-400/20 rounded-full blur-3xl animate-float-slow" />
+        <div className="absolute top-1/2 left-1/3 w-72 h-72 bg-gradient-to-br from-indigo-300/20 to-blue-300/15 rounded-full blur-3xl animate-float-fast" />
+        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-cyan-300/15 to-blue-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "7s" }} />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6 lg:px-8 text-center z-10 py-20">
-        <div className={`glass-strong rounded-3xl p-12 md:p-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className={`glass-ultra rounded-[2rem] p-12 md:p-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight mb-8">
             Let's Empower Your
             <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 animate-glow">
@@ -93,7 +93,7 @@ export default function Hero() {
 
           <Button
             size="lg"
-            className="glass-strong hover:glass text-indigo-600 hover:text-indigo-700 font-semibold text-lg px-12 py-7 shadow-2xl shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:scale-110 transition-all duration-500 rounded-3xl border-2 border-indigo-200/50 hover:border-indigo-300"
+            className="glass-strong hover:glass-ultra text-indigo-600 hover:text-indigo-700 font-semibold text-lg px-12 py-7 shadow-2xl shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:scale-110 transition-all duration-500 rounded-3xl border-2 border-indigo-200/50 hover:border-indigo-300 btn-glow-hover"
             onClick={() => scrollToSection("#contact")}
           >
             Get Started Today ✨

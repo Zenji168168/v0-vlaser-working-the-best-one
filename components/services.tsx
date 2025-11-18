@@ -31,8 +31,9 @@ export default function Services() {
 
   return (
     <section id="services" ref={ref} className="py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-1/4 left-10 w-80 h-80 bg-indigo-300/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "3s" }} />
+      <div className="absolute top-1/4 left-10 w-80 h-80 bg-gradient-to-br from-indigo-300/25 to-blue-300/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gradient-to-br from-purple-300/25 to-pink-300/20 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-br from-cyan-200/20 to-indigo-300/20 rounded-full blur-3xl animate-float-fast" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className={`text-center mb-20 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
@@ -48,7 +49,7 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`glass-strong rounded-3xl p-8 transition-smooth hover:scale-110 hover:shadow-2xl hover:shadow-indigo-300/50 cursor-pointer group ${
+                className={`glass-ultra rounded-3xl p-8 transition-smooth hover:scale-110 hover:shadow-2xl hover:shadow-indigo-300/60 cursor-pointer group ${
                   inView ? "animate-scale-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}

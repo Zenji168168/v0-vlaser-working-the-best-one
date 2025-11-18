@@ -41,11 +41,12 @@ export default function Portfolio() {
       <section 
         id="portfolio" 
         ref={sectionRef}
-        className="relative py-20 md:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden"
+        className="relative py-20 md:py-32 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 overflow-hidden"
       >
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: '3s' }} />
+        <div className="absolute inset-0 opacity-50">
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-blue-400/40 to-indigo-400/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob" />
+          <div className="absolute bottom-1/4 right-1/4 w-[480px] h-[480px] bg-gradient-to-br from-purple-400/40 to-pink-400/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob-slow" />
+          <div className="absolute top-1/2 right-1/3 w-[450px] h-[450px] bg-gradient-to-br from-cyan-300/35 to-blue-400/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob-fast" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -78,8 +79,8 @@ export default function Portfolio() {
                 className="group cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white p-4 shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-gray-100 group-hover:border-blue-200 transition-colors duration-500">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-strong p-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-white/50 group-hover:border-indigo-200 transition-colors duration-500">
                     <Image
                       src={image.src || "/placeholder.svg?height=400&width=600"}
                       alt={image.alt}
@@ -87,6 +88,7 @@ export default function Portfolio() {
                       className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
+                    <div className="absolute inset-0 glass opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-blue-600/80 via-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                       <h3 className="text-white font-semibold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         {image.title}
@@ -117,7 +119,7 @@ export default function Portfolio() {
             onClick={() => setSelectedImage(null)}
           >
             <button
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors z-10"
+              className="absolute top-4 right-4 p-2 rounded-full glass-strong hover:glass-ultra text-gray-900 transition-all z-10 hover:scale-110"
               onClick={() => setSelectedImage(null)}
             >
               <X className="w-6 h-6" />
@@ -128,7 +130,7 @@ export default function Portfolio() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-5xl w-full aspect-[4/3] bg-white p-6 rounded-2xl shadow-2xl"
+              className="relative max-w-5xl w-full aspect-[4/3] glass-ultra p-6 rounded-2xl shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-gray-200">

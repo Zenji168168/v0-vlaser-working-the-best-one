@@ -12,8 +12,9 @@ export default function About() {
 
   return (
     <section id="about" ref={ref} className="py-32 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
-      <div className="absolute top-1/4 right-10 w-80 h-80 bg-purple-300/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "4s" }} />
+      <div className="absolute top-1/4 right-10 w-80 h-80 bg-gradient-to-br from-purple-300/25 to-pink-300/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 left-10 w-96 h-96 bg-gradient-to-br from-blue-300/25 to-indigo-300/20 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gradient-to-br from-cyan-200/15 to-blue-300/20 rounded-full blur-3xl animate-float-fast" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid md:grid-cols-2 gap-12">
@@ -24,7 +25,7 @@ export default function About() {
               <h2 className="text-4xl font-bold text-gray-900">About Us</h2>
             </div>
             
-            <div className="glass-strong rounded-3xl p-8 transition-smooth hover:shadow-2xl hover:shadow-indigo-200/50">
+            <div className="glass-ultra rounded-3xl p-8 transition-smooth hover:shadow-2xl hover:shadow-indigo-200/50 hover:scale-105">
               <p className="text-lg text-gray-700 leading-relaxed font-light">
                 Vlaser Solution Cambodia Co., Ltd has been serving businesses nationwide since 2019. We combine
                 innovation with reliability to deliver IT solutions that transform your digital landscape.
@@ -37,7 +38,7 @@ export default function About() {
                 "Comprehensive IT solutions for all sizes",
                 "Expert team committed to your success"
               ].map((text, i) => (
-                <div key={i} className={`glass rounded-2xl p-6 hover:glass-strong transition-smooth hover:translate-x-2 ${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: `${i * 100}ms` }}>
+                <div key={i} className={`glass rounded-2xl p-6 hover:glass-strong transition-smooth hover:translate-x-2 hover:scale-105 ${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: `${i * 100}ms` }}>
                   <p className="text-gray-700 font-medium">✓ {text}</p>
                 </div>
               ))}
@@ -51,7 +52,7 @@ export default function About() {
               <h2 className="text-4xl font-bold text-gray-900">Why Choose Us</h2>
             </div>
 
-            <div className="glass-strong rounded-3xl p-8 border-2 border-blue-300/50 shadow-xl shadow-blue-200/50 transition-smooth hover:shadow-2xl hover:shadow-blue-300/60 hover:scale-105">
+            <div className="glass-ultra rounded-3xl p-8 border-2 border-indigo-300/50 shadow-xl shadow-indigo-200/50 transition-smooth hover:shadow-2xl hover:shadow-indigo-300/60 hover:scale-105">
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { icon: "📅", num: "5+", label: "Years" },
