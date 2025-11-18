@@ -5,30 +5,29 @@
 
 :root {
   --background: 255 255 255;
-  --foreground: 15 23 42;
+  --foreground: 30 41 59;
   --card: 255 255 255;
-  --card-foreground: 15 23 42;
+  --card-foreground: 30 41 59;
   --popover: 255 255 255;
-  --popover-foreground: 15 23 42;
-  --primary: 59 130 246;
+  --popover-foreground: 30 41 59;
+  --primary: 99 102 241;
   --primary-foreground: 255 255 255;
   --secondary: 248 250 252;
-  --secondary-foreground: 15 23 42;
-  --muted: 248 250 252;
+  --secondary-foreground: 30 41 59;
+  --muted: 241 245 249;
   --muted-foreground: 100 116 139;
-  --accent: 37 99 235;
+  --accent: 139 92 246;
   --accent-foreground: 255 255 255;
   --destructive: 239 68 68;
   --destructive-foreground: 255 255 255;
   --border: 226 232 240;
   --input: 226 232 240;
-  --ring: 59 130 246;
-  --radius: 0.75rem;
+  --ring: 99 102 241;
+  --radius: 1.5rem;
 }
 
 @theme inline {
-  --font-sans: "Inter", "SF Pro Display", "-apple-system", "BlinkMacSystemFont", "system-ui", "sans-serif";
-  --font-mono: "SF Mono", "Monaco", "Cascadia Code", "monospace";
+  --font-sans: var(--font-poppins), "Inter", "SF Pro Display", "system-ui", "sans-serif";
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
   --color-card: rgb(var(--card));
@@ -48,10 +47,10 @@
   --color-border: rgb(var(--border));
   --color-input: rgb(var(--input));
   --color-ring: rgb(var(--ring));
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
 }
 
 @layer base {
@@ -69,197 +68,87 @@
   }
 }
 
-/* Enhanced animation keyframes to match THAREACH smooth style */
+/* Glassmorphism utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(99, 102, 241, 0.15);
+}
+
+/* Smooth animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(60px) scale(0.96);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes fadeIn {
-  from { 
-    opacity: 0;
-    filter: blur(5px);
-  }
-  to { 
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(80px) scale(0.92);
-    filter: blur(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-80px);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(80px);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-    filter: blur(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg); 
-  }
-  33% { 
-    transform: translateY(-25px) rotate(3deg); 
-  }
-  66% { 
-    transform: translateY(-12px) rotate(-3deg); 
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    opacity: 0;
-    transform: scale(0.85);
-    filter: blur(6px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-@keyframes revealBlur {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-    filter: blur(12px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0);
   }
 }
 
-/* Added pulse animation for interactive elements */
-@keyframes pulse {
-  0%, 100% {
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33% { transform: translateY(-20px) translateX(10px); }
+  66% { transform: translateY(-10px) translateX(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
     opacity: 1;
     transform: scale(1);
   }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
 }
 
-/* Enhanced animation classes with smoother cubic-bezier easing matching THAREACH */
 .animate-fade-in-up {
-  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .animate-fade-in {
-  animation: fadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-slide-up {
-  animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .animate-float {
-  animation: float 10s ease-in-out infinite;
+  animation: float 15s ease-in-out infinite;
 }
 
-.animate-scale-up {
-  animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
 }
 
-.animate-reveal-blur {
-  animation: revealBlur 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Smooth parallax scroll effect */
-.parallax {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Enhanced hover states matching THAREACH interactive elements */
-.hover-lift {
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-16px) scale(1.03);
-  box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
-}
-
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
-}
-
-/* Added perspective for 3D transforms */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.transform-3d {
-  transform-style: preserve-3d;
 }

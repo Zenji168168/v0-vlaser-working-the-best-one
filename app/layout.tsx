@@ -1,28 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-// import localFont from "next/font/local"
-
-// const kantumruyPro = localFont({
-//   src: [
-//     {
-//       path: "./fonts/KantumruyPro-Regular.ttf",
-//       weight: "400",
-//     },
-//     {
-//       path: "./fonts/KantumruyPro-Bold.ttf",
-//       weight: "700",
-//     },
-//   ],
-//   variable: "--font-khmer",
-//   fallback: ["system-ui", "sans-serif"],
-// })
-
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const poppins = Poppins({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins"
+})
 
 export const metadata: Metadata = {
   title: "Vlaser Solution Cambodia - IT Solutions Provider",
@@ -54,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`${poppins.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

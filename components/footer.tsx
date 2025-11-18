@@ -17,13 +17,13 @@ export default function Footer() {
       if (pathname !== "/") {
         router.push(`/${sectionId}`)
       } else {
-        document.querySelector(sectionId)?.scrollIntoView({ behavior: "instant" })
+        document.querySelector(sectionId)?.scrollIntoView({ behavior: "smooth" })
       }
     }
   }
 
   return (
-    <footer className="bg-white border-t border-gray-200 py-16">
+    <footer className="glass-strong border-t-4 border-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Company Info */}
@@ -32,11 +32,11 @@ export default function Footer() {
               <Image src="/vlaser-logo.png" alt="Vlaser Logo" width={48} height={48} className="object-contain" />
               <div>
                 <div className="text-sm font-bold text-gray-700">វីឡាសឺសូលូសិន</div>
-                <div className="text-lg font-bold text-blue-600">Vlaser Solution</div>
+                <div className="text-lg font-bold text-indigo-600">Vlaser Solution</div>
               </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Delivering cutting-edge IT solutions since 2019. Innovation • Reliability • Excellence
+            <p className="text-gray-600 text-sm leading-relaxed font-light">
+              Delivering cutting-edge IT solutions since 2019
             </p>
           </div>
 
@@ -48,7 +48,7 @@ export default function Footer() {
                 <li key={link}>
                   <button
                     onClick={() => handleNavigation(link)}
-                    className="text-gray-600 hover:text-blue-600 transition-all duration-300 hover:translate-x-2 inline-block"
+                    className="text-gray-600 hover:text-indigo-600 transition-smooth hover:translate-x-2 inline-block font-light"
                   >
                     → {link}
                   </button>
@@ -59,8 +59,8 @@ export default function Footer() {
 
           {/* Contact & Social */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-6 text-lg">Get In Touch</h3>
-            <div className="space-y-3 text-sm text-gray-600">
+            <h3 className="font-semibold text-gray-900 mb-6 text-lg">Contact</h3>
+            <div className="space-y-3 text-sm text-gray-600 font-light">
               <p>📧 info@vlasersolutions.com</p>
               <p>📍 Phnom Penh, Cambodia</p>
               <p>📞 096 666 9545</p>
@@ -94,14 +94,9 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-200 pt-8 text-center">
-          <p className="text-sm text-gray-500">
-            © {currentYear} ក្រុមហ៊ុន វីឡាសឺ សឹលូសិន ខេមបូឌា ឯ.ក. All rights reserved.
+          <p className="text-sm text-gray-500 font-light">
+            © {currentYear} Vlaser Solution Cambodia. All rights reserved.
           </p>
-          <div className="flex justify-center gap-6 mt-4 text-xs text-gray-400">
-            <Link href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
-            <span>•</span>
-            <Link href="#" className="hover:text-blue-600 transition-colors">Terms of Service</Link>
-          </div>
         </div>
       </div>
     </footer>
