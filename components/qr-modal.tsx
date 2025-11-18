@@ -51,7 +51,7 @@ export default function QRModal({ isOpen, onClose }: QRModalProps) {
           
           <div className="relative w-full aspect-square max-w-sm mx-auto mb-6 rounded-2xl overflow-hidden shadow-xl">
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image_2025-11-17_09-46-02-4cktAURTJBVisvsP3CiF7t4okyaRPS.png"
+              src="/images/design-mode/image_2025-11-17_09-46-02.png"
               alt="QR Code - @SANGHAMEUK"
               fill
               className="object-contain"
