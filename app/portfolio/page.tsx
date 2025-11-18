@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
 import { X } from 'lucide-react'
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -19,6 +18,17 @@ const portfolioImages = [
 
 export default function PortfolioPage() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null)
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const handleCloseModal = () => {
+    setIsModalVisible(false)
+    setTimeout(() => setSelectedImage(null), 300)
+  }
+
+  const handleOpenModal = (image: { src: string; alt: string }) => {
+    setSelectedImage(image)
+    setTimeout(() => setIsModalVisible(true), 10)
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
@@ -33,37 +43,25 @@ export default function PortfolioPage() {
         
         <main className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
           {/* Page Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16 animate-fade-in-up">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Our Portfolio
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Showcasing our innovative IT solutions and successful projects delivered to clients across Cambodia
             </p>
-          </motion.div>
+          </div>
 
           {/* Portfolio Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {portfolioImages.map((image, index) => (
-              <motion.div
+              <div
                 key={image.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.15,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }}
-                whileHover={{ y: -8 }}
-                className="group cursor-pointer"
-                onClick={() => setSelectedImage(image)}
+                className="group cursor-pointer animate-fade-in-up"
+                style={{ animationDelay: `${index * 150}ms` }}
+                onClick={() => handleOpenModal(image)}
               >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white p-4 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white p-4 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
                   <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-gray-100 group-hover:border-blue-200 transition-colors duration-500">
                     <Image
                       src={image.src || "/placeholder.svg"}
@@ -80,7 +78,7 @@ export default function PortfolioPage() {
                     <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -96,44 +94,38 @@ export default function PortfolioPage() {
       </div>
 
       {/* Image Modal */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-            onClick={() => setSelectedImage(null)}
+      {selectedImage && (
+        <div
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-300 ${
+            isModalVisible ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={handleCloseModal}
+        >
+          <button
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+            onClick={handleCloseModal}
           >
-            <button
-              className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X className="w-6 h-6" />
-            </button>
+            <X className="w-6 h-6" />
+          </button>
 
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative max-w-5xl w-full aspect-[4/3] bg-white p-6 rounded-2xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-gray-200">
-                <Image
-                  src={selectedImage.src || "/placeholder.svg"}
-                  alt={selectedImage.alt}
-                  fill
-                  className="object-contain"
-                  sizes="90vw"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div
+            className={`relative max-w-5xl w-full aspect-[4/3] bg-white p-6 rounded-2xl shadow-2xl transition-all duration-300 ${
+              isModalVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-gray-200">
+              <Image
+                src={selectedImage.src || "/placeholder.svg"}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain"
+                sizes="90vw"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

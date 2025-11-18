@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
 import { X } from 'lucide-react'
 
 const portfolioImages = [
@@ -16,6 +15,7 @@ const portfolioImages = [
 
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; title: string } | null>(null)
+  const [isModalVisible, setIsModalVisible] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -36,6 +36,16 @@ export default function Portfolio() {
     return () => observer.disconnect()
   }, [])
 
+  const handleCloseModal = () => {
+    setIsModalVisible(false)
+    setTimeout(() => setSelectedImage(null), 300)
+  }
+
+  const handleOpenModal = (image: { src: string; alt: string; title: string }) => {
+    setSelectedImage(image)
+    setTimeout(() => setIsModalVisible(true), 10)
+  }
+
   return (
     <>
       <section 
@@ -50,11 +60,10 @@ export default function Portfolio() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-center mb-16"
+          <div
+            className={`text-center mb-16 transition-all duration-800 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
               Our Portfolio
@@ -62,22 +71,19 @@ export default function Portfolio() {
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Showcasing our innovative IT solutions and successful projects delivered to clients across Cambodia
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
             {portfolioImages.map((image, index) => (
-              <motion.div
+              <div
                 key={image.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: isVisible ? index * 0.1 : 0,
-                  ease: [0.25, 0.1, 0.25, 1]
-                }}
-                whileHover={{ y: -8 }}
-                className="group cursor-pointer"
-                onClick={() => setSelectedImage(image)}
+                className={`group cursor-pointer transition-all duration-600 ${
+                  isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
+                } hover:-translate-y-2`}
+                style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
+                onClick={() => handleOpenModal(image)}
               >
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-strong p-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500">
                   <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-background/50 group-hover:border-primary/20 transition-colors duration-500">
@@ -102,53 +108,47 @@ export default function Portfolio() {
                     <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-            onClick={() => setSelectedImage(null)}
+      {selectedImage && (
+        <div
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-300 ${
+            isModalVisible ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={handleCloseModal}
+        >
+          <button
+            className="absolute top-4 right-4 p-2 rounded-full glass-strong hover:glass-ultra text-foreground transition-all z-10 hover:scale-110"
+            onClick={handleCloseModal}
           >
-            <button
-              className="absolute top-4 right-4 p-2 rounded-full glass-strong hover:glass-ultra text-foreground transition-all z-10 hover:scale-110"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X className="w-6 h-6" />
-            </button>
+            <X className="w-6 h-6" />
+          </button>
 
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="relative max-w-5xl w-full aspect-[4/3] glass-ultra p-6 rounded-2xl shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-border">
-                <Image
-                  src={selectedImage.src || "/placeholder.svg"}
-                  alt={selectedImage.alt}
-                  fill
-                  className="object-contain"
-                  sizes="90vw"
-                />
-              </div>
-              <div className="absolute bottom-8 left-8 right-8 text-center">
-                <h3 className="text-xl font-semibold text-foreground">{selectedImage.title}</h3>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <div
+            className={`relative max-w-5xl w-full aspect-[4/3] glass-ultra p-6 rounded-2xl shadow-2xl transition-all duration-300 ${
+              isModalVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-border">
+              <Image
+                src={selectedImage.src || "/placeholder.svg"}
+                alt={selectedImage.alt}
+                fill
+                className="object-contain"
+                sizes="90vw"
+              />
+            </div>
+            <div className="absolute bottom-8 left-8 right-8 text-center">
+              <h3 className="text-xl font-semibold text-foreground">{selectedImage.title}</h3>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
