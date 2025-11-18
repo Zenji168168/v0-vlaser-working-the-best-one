@@ -30,15 +30,15 @@ export default function Services() {
   const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true })
 
   return (
-    <section id="services" ref={ref} className="py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-1/4 left-10 w-80 h-80 bg-gradient-to-br from-indigo-300/25 to-blue-300/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gradient-to-br from-purple-300/25 to-pink-300/20 rounded-full blur-3xl animate-float-slow" />
-      <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-br from-cyan-200/20 to-indigo-300/20 rounded-full blur-3xl animate-float-fast" />
+    <section id="services" ref={ref} className="py-32 bg-background relative overflow-hidden">
+      <div className="absolute top-1/4 left-10 w-80 h-80 bg-gradient-to-br from-primary/25 to-accent/20 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-gradient-to-br from-accent/25 to-destructive/20 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute top-1/2 right-1/3 w-72 h-72 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-float-fast" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className={`text-center mb-20 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
-          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto font-light">
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">Our Services</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
             Comprehensive IT solutions tailored to your business needs
           </p>
         </div>
@@ -49,18 +49,18 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`glass-ultra rounded-3xl p-8 transition-smooth hover:scale-110 hover:shadow-2xl hover:shadow-indigo-300/60 cursor-pointer group ${
+                className={`glass-ultra rounded-3xl p-8 transition-smooth hover:scale-110 hover:shadow-2xl hover:shadow-primary/60 cursor-pointer group ${
                   inView ? "animate-scale-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
-                  <Icon className="w-14 h-14 text-indigo-600" />
+                  <Icon className="w-14 h-14 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-foreground mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 font-light leading-relaxed">
+                <p className="text-muted-foreground font-light leading-relaxed">
                   {service.description}
                 </p>
               </div>
