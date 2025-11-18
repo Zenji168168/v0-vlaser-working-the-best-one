@@ -26,8 +26,8 @@ export default function Header() {
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "Portfolio", href: "#portfolio" },
     { name: "Clients", href: "#clients" },
-    { name: "Portfolio", href: "/portfolio" },
     { name: "Contact", href: "#contact" },
   ]
 
@@ -77,25 +77,14 @@ export default function Header() {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
-                link.href.startsWith('/') ? (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="relative text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-110 group"
-                  >
-                    {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300 ease-out"></span>
-                  </Link>
-                ) : (
-                  <button
-                    key={link.name}
-                    onClick={() => scrollToSection(link.href)}
-                    className="relative text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-110 group"
-                  >
-                    {link.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300 ease-out"></span>
-                  </button>
-                )
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="relative text-sm font-medium text-gray-700 hover:text-blue-600 transition-all duration-300 hover:scale-110 group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 group-hover:w-full transition-all duration-300 ease-out"></span>
+                </button>
               ))}
             </nav>
 
@@ -121,24 +110,13 @@ export default function Header() {
           {isMenuOpen && (
             <nav className="md:hidden mt-4 pb-4 border-t border-border">
               {navLinks.map((link) => (
-                link.href.startsWith('/') ? (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="block py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ) : (
-                  <button
-                    key={link.name}
-                    onClick={() => scrollToSection(link.href)}
-                    className="block w-full text-left py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
-                  >
-                    {link.name}
-                  </button>
-                )
+                <button
+                  key={link.name}
+                  onClick={() => scrollToSection(link.href)}
+                  className="block w-full text-left py-2 text-sm font-medium text-foreground/70 hover:text-accent transition-colors"
+                >
+                  {link.name}
+                </button>
               ))}
             </nav>
           )}

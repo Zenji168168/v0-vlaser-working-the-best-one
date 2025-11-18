@@ -5,6 +5,7 @@ import Header from "@/components/header"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Services from "@/components/services"
+import Portfolio from "@/components/portfolio"
 import Clients from "@/components/clients"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
@@ -37,6 +38,7 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
+      <Portfolio />
       <Clients />
       <Contact />
       <Footer />
