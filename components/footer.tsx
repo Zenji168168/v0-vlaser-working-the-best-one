@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname, useRouter } from 'next/navigation'
+import VlaserLogo from "./vlaser-logo"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -29,7 +30,9 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <Image src="/vlaser-logo.png" alt="Vlaser Logo" width={48} height={48} className="object-contain" />
+              <div className="w-12 h-12 relative">
+                <VlaserLogo className="w-full h-full" />
+              </div>
               <div>
                 <div className="text-sm font-bold text-foreground/70">វីឡាសឺសូលូសិន</div>
                 <div className="text-lg font-bold text-primary">Vlaser Solution</div>
