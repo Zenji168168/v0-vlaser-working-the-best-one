@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Play, SkipBack, SkipForward, Plus, Check, MapPin, ChevronDown, Wifi, Shield, Server, Camera, Activity, Lock, Radio, Sparkles } from 'lucide-react'
+import { Sparkles } from 'lucide-react'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -11,147 +11,72 @@ export default function Hero() {
     setTimeout(() => setIsVisible(true), 100)
   }, [])
 
+  const scrollToSection = (href: string) => {
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 lg:py-20 pt-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Left Column: Text Content */}
-          <div className={`space-y-8 transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"} text-center lg:text-left`}>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-foreground tracking-tight">
-              Let's Empower Your
-              <span className="block">Digital Future</span>
-            </h1>
-            
-            <div className="space-y-2">
-              <h2 className="text-2xl sm:text-4xl font-bold gradient-text">
-                Leading IT Solutions Provider in Cambodia
-              </h2>
-              <p className="text-base sm:text-lg text-muted-foreground max-w-md leading-relaxed mx-auto lg:mx-0">
-                Providing comprehensive IT solutions for businesses of all sizes with cutting-edge technology and expert support
-              </p>
-            </div>
+    <section id="hero" className="relative overflow-hidden min-h-screen flex items-center justify-center">
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-secondary to-muted/50">
+        <div className="absolute top-10 right-10 w-[300px] sm:w-[400px] md:w-[500px] h-[300px] sm:h-[400px] md:h-[500px] bg-gradient-to-br from-primary/30 to-accent/25 rounded-full blur-[80px] md:blur-[100px] animate-float-blob" />
+        <div className="absolute bottom-10 left-10 w-[280px] sm:w-[380px] md:w-[450px] h-[280px] sm:h-[380px] md:h-[450px] bg-gradient-to-br from-accent/30 to-destructive/25 rounded-full blur-[70px] md:blur-[90px] animate-float-blob-slow" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[450px] md:w-[550px] h-[320px] sm:h-[450px] md:h-[550px] bg-gradient-to-br from-primary/25 to-accent/20 rounded-full blur-[85px] md:blur-[110px] animate-float-blob-fast" />
+        <div className="hidden md:block absolute top-1/4 right-1/3 w-[400px] h-[400px] bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-[80px] animate-float-blob" style={{ animationDelay: "8s" }} />
+        <div className="hidden lg:block absolute bottom-1/3 left-1/4 w-[480px] h-[480px] bg-gradient-to-br from-accent/25 to-primary/20 rounded-full blur-[95px] animate-float-blob-slow" style={{ animationDelay: "12s" }} />
+      </div>
 
-            <div className="pt-4 flex justify-center lg:justify-start">
-              <Button 
-                className="neumorphic-btn h-14 px-8 text-lg text-[#7928CA] font-semibold hover:text-[#FF0080] bg-transparent border-none gap-2"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Get Started Today
-                <Sparkles className="w-5 h-5" />
-              </Button>
-            </div>
-
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 py-12 sm:py-16 lg:py-20">
+        <div className={`glass-ultra rounded-2xl sm:rounded-3xl lg:rounded-[3rem] p-8 sm:p-12 md:p-16 lg:p-20 transition-all duration-1000 transform ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-10 scale-95"}`}>
+          <div className="mb-6 sm:mb-8 inline-flex items-center gap-2 glass-strong px-4 sm:px-6 py-2 sm:py-3 rounded-full animate-fade-in">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary animate-pulse" />
+            <span className="text-xs sm:text-sm font-semibold text-primary">Founded in 2019</span>
           </div>
 
-          {/* Right Column: Floating UI Cards */}
-          <div className={`relative h-[400px] sm:h-[500px] lg:h-[600px] w-full flex justify-center items-center transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
-            
-            <div className="relative w-full h-full max-w-[400px] lg:max-w-none scale-[0.65] sm:scale-90 lg:scale-100 origin-center lg:origin-top-left">
-              {/* Card 1: CCTV Live Feed (Top Right) */}
-              <div className="absolute top-0 right-0 lg:right-10 w-72 neumorphic p-4 animate-float z-20 bg-background">
-                <div className="flex justify-between items-center mb-3">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                    <span className="text-xs font-bold text-red-500">LIVE REC</span>
-                  </div>
-                  <span className="text-xs text-muted-foreground">CAM-01</span>
-                </div>
-                <div className="w-full h-40 neumorphic-pressed rounded-xl relative overflow-hidden mb-4 flex items-center justify-center bg-black/5">
-                   <Camera className="w-12 h-12 text-muted-foreground/20" />
-                   <div className="absolute bottom-2 right-2 text-[10px] font-mono text-muted-foreground">1080p HD</div>
-                </div>
-                <div className="flex justify-between items-center px-2">
-                  <div className="flex gap-3">
-                     <div className="w-8 h-8 rounded-full neumorphic flex items-center justify-center hover:text-primary cursor-pointer transition-colors">
-                        <Radio className="w-4 h-4" />
-                     </div>
-                     <div className="w-8 h-8 rounded-full neumorphic flex items-center justify-center hover:text-primary cursor-pointer transition-colors">
-                        <Activity className="w-4 h-4" />
-                     </div>
-                  </div>
-                  <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-primary/30 cursor-pointer">
-                     <Play className="w-4 h-4 text-white fill-current ml-0.5" />
-                  </div>
-                </div>
-              </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-foreground leading-tight mb-6 sm:mb-8">
+            Let's Empower Your
+            <span className="block mt-2 sm:mt-4 gradient-text">
+              Digital Future
+            </span>
+          </h1>
 
-              {/* Card 2: Network Status List (Center Left) */}
-              <div className="absolute top-20 left-0 lg:left-10 w-64 neumorphic p-6 animate-float-delayed z-10 bg-background">
-                <h3 className="font-bold text-foreground mb-4">System Status</h3>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 rounded-xl gradient-bg text-white shadow-lg shadow-primary/20">
-                    <div className="flex items-center gap-3">
-                      <Wifi className="w-4 h-4" />
-                      <span className="text-sm font-medium">Main Network</span>
-                    </div>
-                    <Check className="w-4 h-4" />
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100/50 cursor-pointer transition-colors">
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <Server className="w-4 h-4" />
-                      <span className="text-sm">Data Center</span>
-                    </div>
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100/50 cursor-pointer transition-colors">
-                    <div className="flex items-center gap-3 text-muted-foreground">
-                      <Shield className="w-4 h-4" />
-                      <span className="text-sm">Firewall</span>
-                    </div>
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
-                  </div>
-                </div>
-              </div>
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-4 sm:mb-6 font-light">
+            Leading IT Solutions Provider in Cambodia
+          </p>
+          
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-12 font-light leading-relaxed px-4">
+            Providing comprehensive IT solutions for businesses of all sizes with cutting-edge technology and expert support
+          </p>
 
-              {/* Card 3: Security Analytics (Bottom Right) */}
-              <div className="absolute bottom-10 right-0 lg:right-20 w-72 neumorphic p-6 animate-float z-30 bg-background">
-                <div className="flex justify-between items-center mb-6">
-                  <h3 className="font-bold text-foreground">Security Log</h3>
-                  <span className="text-xs font-bold text-primary">REALTIME</span>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white">
-                      <Lock className="w-4 h-4" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex justify-between text-xs mb-1">
-                        <span className="font-medium">Encryption</span>
-                        <span className="text-primary">Secure</span>
-                      </div>
-                      <div className="h-2 w-full neumorphic-pressed rounded-full overflow-hidden">
-                        <div className="h-full w-full gradient-bg rounded-full opacity-80" />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="p-4 rounded-2xl neumorphic-pressed">
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-xs font-bold text-muted-foreground">Traffic Load</span>
-                      <span className="text-xs text-primary">Low</span>
-                    </div>
-                    <div className="flex items-end gap-1 h-8">
-                      {[40, 70, 45, 90, 60, 75, 50].map((h, i) => (
-                        <div key={i} className="flex-1 bg-primary/20 rounded-t-sm" style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <Button
+            size="lg"
+            className="glass-strong hover:glass-ultra bg-background/80 hover:bg-background/90 font-semibold text-base sm:text-lg px-8 sm:px-12 md:px-14 py-6 sm:py-7 md:py-8 shadow-2xl shadow-primary/40 hover:shadow-primary/60 rounded-2xl sm:rounded-3xl border-2 border-primary/50 btn-glow-hover group text-primary hover:text-primary w-full sm:w-auto"
+            onClick={() => scrollToSection("#contact")}
+          >
+            <span className="flex items-center gap-2 sm:gap-3 justify-center">
+              Get Started Today 
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-180 transition-transform duration-500" />
+            </span>
+          </Button>
 
-              {/* Card 4: Quick Action (Floating around) */}
-              <div className="absolute bottom-40 -left-10 lg:left-0 w-48 neumorphic p-4 animate-float-delayed z-20 bg-background">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-8 h-8 rounded-full neumorphic flex items-center justify-center text-primary">
-                    <Plus className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm font-bold text-foreground">Add Device</span>
-                </div>
-                <div className="h-1 w-full bg-gray-200 rounded-full" />
-              </div>
+          <div className="mt-12 sm:mt-16 grid grid-cols-3 gap-3 sm:gap-6 md:gap-8 max-w-2xl mx-auto">
+            <div className="glass px-3 sm:px-6 py-3 rounded-xl sm:rounded-2xl">
+              <div className="text-xl sm:text-2xl font-bold text-primary">5+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Years Experience</div>
             </div>
+            <div className="glass px-3 sm:px-6 py-3 rounded-xl sm:rounded-2xl">
+              <div className="text-xl sm:text-2xl font-bold text-primary">100+</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Happy Clients</div>
+            </div>
+            <div className="glass px-3 sm:px-6 py-3 rounded-xl sm:rounded-2xl">
+              <div className="text-xl sm:text-2xl font-bold text-primary">24/7</div>
+              <div className="text-xs sm:text-sm text-muted-foreground">Support</div>
+            </div>
+          </div>
+        </div>
 
+        <div className="hidden sm:block absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="glass w-8 h-12 sm:w-10 sm:h-14 rounded-full flex items-start justify-center p-2 border-2 border-primary/50">
+            <div className="w-1.5 h-3 sm:w-2 sm:h-4 bg-gradient-to-b from-primary to-accent rounded-full animate-pulse" />
           </div>
         </div>
       </div>
