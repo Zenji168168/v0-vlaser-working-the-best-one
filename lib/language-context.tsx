@@ -71,6 +71,21 @@ const translations: Record<Language, Record<string, string>> = {
     // Clients
     "clients.title": "Our Clients",
     "clients.subtitle": "Trusted by leading businesses across Cambodia",
+
+    // Contact
+    "contact.title": "Get In Touch",
+    "contact.subtitle": "We'd love to hear from you",
+    "contact.info.title": "Contact Information",
+    "contact.address.label": "Address",
+    "contact.address.value": "No.8Eo, St14 Borey Piphum Tmey, Steung Meanchey, Phnom Penh",
+    "contact.phone.label": "Phone Numbers",
+    "contact.email.label": "Email",
+
+    // Footer
+    "footer.tagline": "Delivering cutting-edge IT solutions since 2019",
+    "footer.quicklinks": "Quick Links",
+    "footer.contact": "Contact",
+    "footer.copyright": "Vlaser Solution Cambodia. All rights reserved.",
   },
   km: {
     // Header
@@ -130,6 +145,21 @@ const translations: Record<Language, Record<string, string>> = {
     // Clients
     "clients.title": "អតិថិជនរបស់យើង",
     "clients.subtitle": "ទទួលបានការជឿទុកចិត្តពីអាជីវកម្មឈានមុខនៅទូទាំងប្រទេសកម្ពុជា",
+
+    // Contact
+    "contact.title": "ទាក់ទងមកយើង",
+    "contact.subtitle": "យើងចង់ស្តាប់ពីអ្នក",
+    "contact.info.title": "ព័ត៌មានទំនាក់ទំនង",
+    "contact.address.label": "អាសយដ្ឋាន",
+    "contact.address.value": "លេខ៨អ៊ី ផ្លូវ១៤ បុរីពិភពថ្មី ស្ទឹងមានជ័យ រាជធានីភ្នំពេញ",
+    "contact.phone.label": "លេខទូរស័ព្ទ",
+    "contact.email.label": "អ៊ីមែល",
+
+    // Footer
+    "footer.tagline": "ផ្តល់ដំណោះស្រាយ IT ទំនើបតាំងពីឆ្នាំ ២០១៩",
+    "footer.quicklinks": "តំណភ្ជាប់រហ័ស",
+    "footer.contact": "ទំនាក់ទំនង",
+    "footer.copyright": "វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក។ រក្សាសិទ្ធិគ្រប់យ៉ាង។",
   },
 }
 
