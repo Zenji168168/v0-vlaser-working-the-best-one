@@ -1,13 +1,14 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Poppins } from 'next/font/google'
+import { Poppins } from "next/font/google"
 import "./globals.css"
+import { LanguageProvider } from "@/lib/language-context"
 
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-poppins",
-  display: 'swap', // Added font display swap for better performance
+  display: "swap", // Added font display swap for better performance
   preload: true,
 })
 
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
   title: "Vlaser Solution Cambodia - IT Solutions Provider",
   description:
     "Vlaser Solution Cambodia provides comprehensive IT solutions, managed services, cloud solutions, and cybersecurity for businesses. Founded in 2019, we empower your digital future.",
-  keywords: "IT solutions, Cambodia, managed services, cloud solutions, cybersecurity, network solutions, technology provider",
+  keywords:
+    "IT solutions, Cambodia, managed services, cloud solutions, cybersecurity, network solutions, technology provider",
   authors: [{ name: "Vlaser Solution Cambodia" }],
   creator: "Vlaser Solution Cambodia",
   publisher: "Vlaser Solution Cambodia",
@@ -45,11 +47,11 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: '#6366f1',
+  themeColor: "#6366f1",
 }
 
 export default function RootLayout({
@@ -60,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${poppins.variable} font-sans antialiased`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   )
