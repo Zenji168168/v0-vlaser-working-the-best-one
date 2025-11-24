@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
     generator: 'v0.app'
 }
