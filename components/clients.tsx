@@ -39,20 +39,11 @@ export default function Clients() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className={`text-center mb-20 ${inView ? "animate-reveal-blur" : "opacity-0"}`}>
-          {/* Modern decorative frame for title */}
-          <div className="relative inline-block mb-6">
-            {/* Decorative corner elements */}
-            <div className="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-primary/30 rounded-tl-2xl" />
-            <div className="absolute -top-4 -right-4 w-12 h-12 border-t-4 border-r-4 border-accent/50 rounded-tr-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-12 h-12 border-b-4 border-l-4 border-accent/50 rounded-bl-2xl" />
-            <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-primary/30 rounded-br-2xl" />
-
-            <div className="px-12 py-8">
-              <h2 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
-                {t("clients.title")}
-              </h2>
-              <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-accent to-transparent rounded-full" />
-            </div>
+          <div className="mb-6">
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4">
+              {t("clients.title")}
+            </h2>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-accent to-transparent rounded-full" />
           </div>
 
           <p className="text-xl text-primary/70 font-medium">{t("clients.subtitle")}</p>
