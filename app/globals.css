@@ -467,48 +467,16 @@
 }
 
 /* Enhanced language switch animations with modern loading effect */
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%) skewX(-15deg);
-  }
-  100% {
-    transform: translateX(200%) skewX(-15deg);
-  }
-}
-
-@keyframes languageLoadingPulse {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes languageContentFade {
-  0% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-  50% {
-    opacity: 0.3;
-    transform: translateY(-5px) scale(0.98);
-    filter: blur(2px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
 
 /* Enhanced ripple animation for language switch */
 
 /* Added smooth shimmer animation for language loading overlay */
+
+/* Adding parallax and morphing animations */
+.language-switch-text {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .animate-shimmer {
   animation: shimmer 1.5s infinite;
 }
