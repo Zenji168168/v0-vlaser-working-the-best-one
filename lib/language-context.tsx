@@ -1,0 +1,101 @@
+"use client"
+
+import { createContext, useContext, useState, type ReactNode } from "react"
+
+type Language = "en" | "km"
+
+interface LanguageContextType {
+  language: Language
+  setLanguage: (lang: Language) => void
+  t: (key: string) => string
+}
+
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    // Header
+    "nav.home": "Home",
+    "nav.about": "About",
+    "nav.services": "Services",
+    "nav.portfolio": "Portfolio",
+    "nav.contact": "Contact",
+    "header.contact": "Contact",
+
+    // Hero
+    "hero.founded": "Founded in 2019",
+    "hero.title1": "Let's Empower Your",
+    "hero.title2": "Digital Future",
+    "hero.subtitle": "Leading IT Solutions Provider in Cambodia",
+    "hero.description":
+      "Providing comprehensive IT solutions for businesses of all sizes with cutting-edge technology and expert support",
+    "hero.cta": "Get Started Today",
+    "hero.stat1": "Years Experience",
+    "hero.stat2": "Happy Clients",
+    "hero.stat3": "Support",
+
+    // About
+    "about.title": "About Us",
+    "about.why": "Why Choose Us",
+    "about.description":
+      "Vlaser Solution Cambodia Co., Ltd has been serving businesses nationwide since 2019. We combine innovation with reliability to deliver IT solutions that transform your digital landscape.",
+    "about.point1": "Innovation and reliability at our core",
+    "about.point2": "Comprehensive IT solutions for all sizes",
+    "about.point3": "Expert team committed to your success",
+    "about.years": "Years",
+    "about.projects": "Projects",
+    "about.satisfaction": "Satisfaction",
+    "about.support": "Support",
+  },
+  km: {
+    // Header
+    "nav.home": "ទំព័រដើម",
+    "nav.about": "អំពីយើង",
+    "nav.services": "សេវាកម្ម",
+    "nav.portfolio": "ផលិតផល",
+    "nav.contact": "ទំនាក់ទំនង",
+    "header.contact": "ទំនាក់ទំនង",
+
+    // Hero
+    "hero.founded": "បង្កើតឡើងក្នុងឆ្នាំ ២០១៩",
+    "hero.title1": "តោះចាប់ផ្តើមអភិវឌ្ឍ",
+    "hero.title2": "អនាគតឌីជីថលរបស់អ្នក",
+    "hero.subtitle": "អ្នកផ្តល់សេវាកម្ម IT លេខមួយក្នុងប្រទេសកម្ពុជា",
+    "hero.description": "ផ្តល់នូវដំណោះស្រាយ IT ដ៏ទូលំទូលាយសម្រាប់អាជីវកម្មគ្រប់ទំហំ ជាមួយនឹងបច្ចេកវិទ្យាទំនើប និងការគាំទ្រពីអ្នកជំនាញ",
+    "hero.cta": "ចាប់ផ្តើមថ្ងៃនេះ",
+    "hero.stat1": "ឆ្នាំបទពិសោធន៍",
+    "hero.stat2": "អតិថិជនពេញចិត្ត",
+    "hero.stat3": "ការគាំទ្រ",
+
+    // About
+    "about.title": "អំពីយើង",
+    "about.why": "ហេតុអ្វីជ្រើសរើសយើង",
+    "about.description":
+      "ក្រុមហ៊ុន វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក បានបម្រើសេវាអាជីវកម្មទូទាំងប្រទេសតាំងពីឆ្នាំ ២០១៩ ។ យើងបញ្ចូលគ្នានូវភាពច្នៃប្រឌិត និងភាពជឿទុកចិត្ត ដើម្បីផ្តល់នូវដំណោះស្រាយ IT ដែលផ្លាស់ប្តូរទេសភាពឌីជីថលរបស់អ្នក។",
+    "about.point1": "ភាពច្នៃប្រឌិត និងភាពជឿទុកចិត្ត ជាស្នូលរបស់យើង",
+    "about.point2": "ដំណោះស្រាយ IT ដ៏ទូលំទូលាយសម្រាប់គ្រប់ទំហំ",
+    "about.point3": "ក្រុមអ្នកជំនាញ ប្តេជ្ញាចិត្តនឹងភាពជោគជ័យរបស់អ្នក",
+    "about.years": "ឆ្នាំ",
+    "about.projects": "គម្រោង",
+    "about.satisfaction": "ពេញចិត្ត",
+    "about.support": "ការគាំទ្រ",
+  },
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguage] = useState<Language>("en")
+
+  const t = (key: string): string => {
+    return translations[language][key] || key
+  }
+
+  return <LanguageContext.Provider value={{ language, setLanguage, t }}>{children}</LanguageContext.Provider>
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext)
+  if (context === undefined) {
+    throw new Error("useLanguage must be used within a LanguageProvider")
+  }
+  return context
+}

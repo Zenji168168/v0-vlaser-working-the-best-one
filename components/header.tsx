@@ -3,9 +3,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import QRModal from "./qr-modal"
+import { useLanguage } from "@/lib/language-context"
+import LanguageToggle from "./language-toggle"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -13,6 +15,7 @@ export default function Header() {
   const [isQRModalOpen, setIsQRModalOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,15 +26,15 @@ export default function Header() {
   }, [])
 
   const navLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact" },
+    { name: t("nav.home"), href: "#hero" },
+    { name: t("nav.about"), href: "#about" },
+    { name: t("nav.services"), href: "#services" },
+    { name: t("nav.portfolio"), href: "#portfolio" },
+    { name: t("nav.contact"), href: "#contact" },
   ]
 
   const scrollToSection = (href: string) => {
-    if (pathname === '/') {
+    if (pathname === "/") {
       const element = document.querySelector(href)
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -52,16 +55,21 @@ export default function Header() {
     <>
       <header
         className={`sticky top-0 z-50 transition-all duration-500 ${
-          isScrolled 
-            ? "glass-strong shadow-lg shadow-border/50" 
-            : "bg-background/95"
+          isScrolled ? "glass-strong shadow-lg shadow-border/50" : "bg-background/95"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
               <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform duration-300">
-                <Image src="/vlaser-logo.png" alt="Vlaser Logo" width={48} height={48} className="object-contain" priority />
+                <Image
+                  src="/vlaser-logo.png"
+                  alt="Vlaser Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div className="hidden md:block">
                 <div className="text-sm sm:text-base font-bold text-foreground group-hover:text-primary transition-colors">
@@ -87,16 +95,21 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-3 sm:gap-4">
+              <LanguageToggle />
               <Button
                 size="sm"
                 className="glass-strong hover:glass text-primary hover:text-primary font-medium text-xs sm:text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-110 transition-all duration-300 border border-primary/20 px-3 sm:px-4 py-2"
                 onClick={() => setIsQRModalOpen(true)}
               >
-                Contact
+                {t("header.contact")}
               </Button>
             </div>
 
-            <button className="lg:hidden text-foreground p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+            <button
+              className="lg:hidden text-foreground p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
