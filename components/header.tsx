@@ -58,10 +58,10 @@ export default function Header() {
           isScrolled ? "glass-strong shadow-lg shadow-border/50" : "bg-background/95"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform duration-300">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 group flex-shrink-0">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform duration-300">
                 <Image
                   src="/vlaser-logo.png"
                   alt="Vlaser Logo"
@@ -71,11 +71,11 @@ export default function Header() {
                   priority
                 />
               </div>
-              <div className="hidden md:block">
-                <div className="text-sm sm:text-base font-bold text-foreground group-hover:text-primary transition-colors">
+              <div className="hidden sm:block">
+                <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
                   វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors">
+                <div className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors leading-tight">
                   Vlaser Solution Cambodia Co., Ltd
                 </div>
               </div>
@@ -94,14 +94,15 @@ export default function Header() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0">
               <LanguageToggle />
               <Button
                 size="sm"
-                className="glass-strong hover:glass text-primary hover:text-primary font-medium text-xs sm:text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-110 transition-all duration-300 border border-primary/20 px-3 sm:px-4 py-2"
+                className="glass-strong hover:glass text-primary hover:text-primary font-medium text-[10px] sm:text-xs md:text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-110 transition-all duration-300 border border-primary/20 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2"
                 onClick={() => setIsQRModalOpen(true)}
               >
-                {t("header.contact")}
+                <span className="hidden sm:inline">{t("header.contact")}</span>
+                <span className="sm:hidden">Contact</span>
               </Button>
             </div>
 

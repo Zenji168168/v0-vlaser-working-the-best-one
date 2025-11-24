@@ -8,6 +8,7 @@ interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: string) => string
+  isChanging: boolean
 }
 
 const translations: Record<Language, Record<string, string>> = {
@@ -170,18 +171,73 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [isChanging, setIsChanging] = useState(false)
 
   useEffect(() => {
+    if (isChanging) {
+      const timer = setTimeout(() => setIsChanging(false), 600)
+      return () => clearTimeout(timer)
+    }
+  }, [isChanging])
+
+  const handleSetLanguage = (lang: Language) => {
     setIsChanging(true)
-    const timer = setTimeout(() => setIsChanging(false), 400)
-    return () => clearTimeout(timer)
-  }, [language])
+    setTimeout(() => {
+      setLanguage(lang)
+    }, 200)
+  }
 
   const t = (key: string): string => {
     return translations[language][key] || key
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      <div className={isChanging ? "language-switch-enter" : ""}>{children}</div>
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, isChanging }}>
+      {isChanging && (
+        <div className="fixed inset-0 z-[9999] pointer-events-none">
+          {/* Gradient background overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 animate-pulse" />
+
+          {/* Loading spinner with modern design */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative">
+              {/* Outer rotating ring */}
+              <div className="w-20 h-20 rounded-full border-4 border-primary/20 border-t-primary animate-spin" />
+
+              {/* Inner pulsing circle */}
+              <div className="absolute inset-3 bg-gradient-to-br from-primary to-accent rounded-full animate-pulse" />
+
+              {/* Center language indicator */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white font-bold text-lg animate-pulse">{language === "en" ? "KM" : "EN"}</span>
+              </div>
+
+              {/* Orbiting dots */}
+              <div className="absolute inset-0 animate-spin" style={{ animationDuration: "2s" }}>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-accent rounded-full" />
+              </div>
+              <div
+                className="absolute inset-0 animate-spin"
+                style={{ animationDuration: "2s", animationDelay: "0.5s" }}
+              >
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rounded-full" />
+              </div>
+            </div>
+          </div>
+
+          {/* Shimmer effect */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"
+              style={{ animationDuration: "1.5s" }}
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Smooth fade transition for content */}
+      <div
+        className={`transition-all duration-300 ${isChanging ? "opacity-70 scale-[0.98]" : "opacity-100 scale-100"}`}
+      >
+        {children}
+      </div>
     </LanguageContext.Provider>
   )
 }
