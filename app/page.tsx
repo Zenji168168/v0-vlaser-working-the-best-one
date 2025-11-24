@@ -20,12 +20,12 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-white flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 flex items-center justify-center z-50">
         <div className="glass-ultra rounded-3xl p-12 text-center space-y-4 animate-scale-in">
-          <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 animate-glow">
+          <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary animate-glow">
             VLASER
           </div>
-          <div className="text-sm text-gray-600 animate-pulse">Loading your digital future...</div>
+          <div className="text-sm text-primary animate-pulse">Loading your digital future...</div>
         </div>
       </div>
     )
