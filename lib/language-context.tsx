@@ -44,6 +44,33 @@ const translations: Record<Language, Record<string, string>> = {
     "about.projects": "Projects",
     "about.satisfaction": "Satisfaction",
     "about.support": "Support",
+
+    // Services
+    "services.title": "Our Services",
+    "services.subtitle": "Comprehensive IT solutions tailored to your business needs",
+    "services.consulting.title": "IT Consulting",
+    "services.consulting.desc": "Expert guidance for your digital transformation",
+    "services.network.title": "Network Setup",
+    "services.network.desc": "Secure and scalable network infrastructure",
+    "services.security.title": "Cyber Security",
+    "services.security.desc": "Protect your business from digital threats",
+    "services.webdev.title": "Web Development",
+    "services.webdev.desc": "Modern, responsive web solutions",
+
+    // Portfolio
+    "portfolio.title": "Our Portfolio",
+    "portfolio.subtitle":
+      "Showcasing our innovative IT solutions and successful projects delivered to clients across Cambodia",
+    "portfolio.project1": "Network Infrastructure Setup",
+    "portfolio.project2": "Security System Implementation",
+    "portfolio.project3": "Cloud Migration Solution",
+    "portfolio.project4": "IT Consultation Service",
+    "portfolio.project5": "Data Center Management",
+    "portfolio.project6": "Cybersecurity Solution",
+
+    // Clients
+    "clients.title": "Our Clients",
+    "clients.subtitle": "Trusted by leading businesses across Cambodia",
   },
   km: {
     // Header
@@ -77,6 +104,32 @@ const translations: Record<Language, Record<string, string>> = {
     "about.projects": "គម្រោង",
     "about.satisfaction": "ពេញចិត្ត",
     "about.support": "ការគាំទ្រ",
+
+    // Services
+    "services.title": "សេវាកម្មរបស់យើង",
+    "services.subtitle": "ដំណោះស្រាយ IT ដ៏ទូលំទូលាយ ត្រូវបានរចនាឡើងតាមតម្រូវការអាជីវកម្មរបស់អ្នក",
+    "services.consulting.title": "ការប្រឹក្សា IT",
+    "services.consulting.desc": "ការណែនាំពីអ្នកជំនាញសម្រាប់ការផ្លាស់ប្តូរឌីជីថលរបស់អ្នក",
+    "services.network.title": "ការតម្លើង Network",
+    "services.network.desc": "ហេដ្ឋារចនាសម្ព័ន្ធបណ្តាញដែលមានសុវត្ថិភាព និងអាចពង្រីកបាន",
+    "services.security.title": "សុវត្ថិភាពតាមអ៊ីនធឺណិត",
+    "services.security.desc": "ការពារអាជីវកម្មរបស់អ្នកពីការគំរាមកំហែងឌីជីថល",
+    "services.webdev.title": "ការអភិវឌ្ឍគេហទំព័រ",
+    "services.webdev.desc": "ដំណោះស្រាយគេហទំព័រទំនើប និងឆ្លើយតប",
+
+    // Portfolio
+    "portfolio.title": "ផលិតផលរបស់យើង",
+    "portfolio.subtitle": "បង្ហាញពីដំណោះស្រាយ IT ច្នៃប្រឌិត និងគម្រោងជោគជ័យដែលបានផ្តល់ជូនដល់អតិថិជននៅទូទាំងប្រទេសកម្ពុជា",
+    "portfolio.project1": "ការតម្លើងហេដ្ឋារចនាសម្ព័ន្ធបណ្តាញ",
+    "portfolio.project2": "ការអនុវត្តប្រព័ន្ធសុវត្ថិភាព",
+    "portfolio.project3": "ដំណោះស្រាយការផ្លាស់ទី Cloud",
+    "portfolio.project4": "សេវាកម្មប្រឹក្សា IT",
+    "portfolio.project5": "ការគ្រប់គ្រង Data Center",
+    "portfolio.project6": "ដំណោះស្រាយសុវត្ថិភាពតាមអ៊ីនធឺណិត",
+
+    // Clients
+    "clients.title": "អតិថិជនរបស់យើង",
+    "clients.subtitle": "ទទួលបានការជឿទុកចិត្តពីអាជីវកម្មឈានមុខនៅទូទាំងប្រទេសកម្ពុជា",
   },
 }
 

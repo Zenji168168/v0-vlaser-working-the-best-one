@@ -1,33 +1,35 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import { Monitor, Shield, Cloud, Code } from 'lucide-react'
-
-const services = [
-  {
-    title: "IT Consulting",
-    description: "Expert guidance for your digital transformation",
-    icon: Monitor,
-  },
-  {
-    title: "Network Setup",
-    description: "Secure and scalable network infrastructure",
-    icon: Shield,
-  },
-  {
-    title: "Cyber Security",
-    description: "Protect your business from digital threats",
-    icon: Cloud,
-  },
-  {
-    title: "Web Development",
-    description: "Modern, responsive web solutions",
-    icon: Code,
-  },
-]
+import { Monitor, Shield, Cloud, Code } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 export default function Services() {
   const { ref, inView } = useInView({ threshold: 0.05, triggerOnce: true })
+  const { t } = useLanguage()
+
+  const services = [
+    {
+      titleKey: "services.consulting.title",
+      descKey: "services.consulting.desc",
+      icon: Monitor,
+    },
+    {
+      titleKey: "services.network.title",
+      descKey: "services.network.desc",
+      icon: Shield,
+    },
+    {
+      titleKey: "services.security.title",
+      descKey: "services.security.desc",
+      icon: Cloud,
+    },
+    {
+      titleKey: "services.webdev.title",
+      descKey: "services.webdev.desc",
+      icon: Code,
+    },
+  ]
 
   return (
     <section id="services" ref={ref} className="py-32 bg-background relative overflow-hidden">
@@ -37,10 +39,8 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className={`text-center mb-20 ${inView ? "animate-fade-in-up" : "opacity-0"}`}>
-          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">Our Services</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-            Comprehensive IT solutions tailored to your business needs
-          </p>
+          <h2 className="text-5xl md:text-6xl font-bold text-foreground mb-6">{t("services.title")}</h2>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">{t("services.subtitle")}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -57,12 +57,8 @@ export default function Services() {
                 <div className="mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
                   <Icon className="w-14 h-14 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {service.description}
-                </p>
+                <h3 className="text-xl font-semibold text-foreground mb-3">{t(service.titleKey)}</h3>
+                <p className="text-muted-foreground font-light leading-relaxed">{t(service.descKey)}</p>
               </div>
             )
           })}
