@@ -21,11 +21,31 @@ export default function Home() {
   if (isLoading) {
     return (
       <div className="fixed inset-0 bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 flex items-center justify-center z-50">
-        <div className="glass-ultra rounded-3xl p-12 text-center space-y-4 animate-scale-in">
-          <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary animate-glow">
-            VLASER
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-primary/10 rounded-full animate-float-blob blur-2xl" />
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-accent/10 rounded-full animate-float-blob-slow blur-3xl" />
+          <div className="absolute top-1/3 right-1/4 w-36 h-36 bg-primary/5 rounded-full animate-float-blob-fast blur-2xl" />
+        </div>
+
+        <div className="relative glass-ultra rounded-3xl p-12 text-center space-y-4 animate-scale-in shadow-2xl">
+          <div className="relative">
+            <div className="text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-[gradientShift_3s_ease-in-out_infinite] text-transparent bg-clip-text">
+              VLASER
+            </div>
+            <div className="absolute inset-0 text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary blur-xl opacity-30 animate-pulse">
+              VLASER
+            </div>
           </div>
-          <div className="text-sm text-primary animate-pulse">Loading your digital future...</div>
+
+          <div className="text-sm text-primary/80 animate-[fadeIn_1s_ease-in-out_infinite_alternate]">
+            Loading your digital future...
+          </div>
+
+          <div className="flex justify-center gap-2 pt-2">
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+            <div className="w-2 h-2 bg-accent rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+            <div className="w-2 h-2 bg-primary rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+          </div>
         </div>
       </div>
     )
