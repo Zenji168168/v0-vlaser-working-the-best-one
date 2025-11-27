@@ -149,7 +149,7 @@ const translations: Record<Language, Record<string, string>> = {
     "services.webdev.desc": "ដំណោះស្រាយគេហទំព័រទំនើប និងឆ្លើយតប",
     "services.wifi.title": "ការតភ្ជាប់ Wifi",
     "services.wifi.desc": "ការដំឡើង និងគ្រប់គ្រងបណ្តាញឥតលួស ល្បឿនលឿន",
-    "services.cctv.title": "ប្រព័ន្ធ CCTV",
+    "services.cctv.title": "ប្រព័ន្ធកាំមេរ៉ា​សុវត្ថិភាព",
     "services.cctv.desc": "ដំណោះស្រាយម៉ាកាទិកឯកទេស សម្រាប់ការត្រួតពិនិត្យសុវត្ថិភាព",
 
     // Portfolio

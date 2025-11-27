@@ -1,7 +1,7 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import { Monitor, Shield, Cloud, Code, Wifi, Camera } from "lucide-react"
+import { Monitor, Shield, Cloud, Code, Wifi, Cctv } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export default function Services() {
@@ -9,6 +9,11 @@ export default function Services() {
   const { t } = useLanguage()
 
   const services = [
+    {
+      titleKey: "services.cctv.title",
+      descKey: "services.cctv.desc",
+      icon: Cctv,
+    },
     {
       titleKey: "services.consulting.title",
       descKey: "services.consulting.desc",
@@ -33,11 +38,6 @@ export default function Services() {
       titleKey: "services.wifi.title",
       descKey: "services.wifi.desc",
       icon: Wifi,
-    },
-    {
-      titleKey: "services.cctv.title",
-      descKey: "services.cctv.desc",
-      icon: Camera,
     },
   ]
 
