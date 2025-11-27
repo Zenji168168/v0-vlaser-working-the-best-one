@@ -36,12 +36,17 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     "about.title": "About Us",
-    "about.why": "Why Choose Us",
+    "about.why": "Why Choose Vlaser Solution",
     "about.description":
       "Vlaser Solution Cambodia Co., Ltd has been serving businesses nationwide since 2019. We combine innovation with reliability to deliver IT solutions that transform your digital landscape.",
     "about.point1": "Innovation and reliability at our core",
     "about.point2": "Comprehensive IT solutions for all sizes",
     "about.point3": "Expert team committed to your success",
+    "about.why.point1": "Experienced team of IT professionals",
+    "about.why.point2": "Proven track record of successful projects",
+    "about.why.point3": "Commitment to client satisfaction",
+    "about.why.point4": "Competitive pricing",
+    "about.why.point5": "Continuous innovation and technology updates",
     "about.years": "Years",
     "about.projects": "Projects",
     "about.satisfaction": "Satisfaction",
@@ -115,12 +120,17 @@ const translations: Record<Language, Record<string, string>> = {
 
     // About
     "about.title": "អំពីយើង",
-    "about.why": "ហេតុអ្វីជ្រើសរើសយើង",
+    "about.why": "ហេតុអ្វីជ្រើសរើស វីឡាសឺសូលូសិន",
     "about.description":
       "ក្រុមហ៊ុន វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក បានបម្រើសេវាអាជីវកម្មទូទាំងប្រទេសតាំងពីឆ្នាំ ២០១៩ ។ យើងបញ្ចូលគ្នានូវភាពច្នៃប្រឌិត និងភាពជឿទុកចិត្ត ដើម្បីផ្តល់នូវដំណោះស្រាយ IT ដែលផ្លាស់ប្តូរទេសភាពឌីជីថលរបស់អ្នក។",
     "about.point1": "ភាពច្នៃប្រឌិត និងភាពជឿទុកចិត្ត ជាស្នូលរបស់យើង",
     "about.point2": "ដំណោះស្រាយ IT ដ៏ទូលំទូលាយសម្រាប់គ្រប់ទំហំ",
     "about.point3": "ក្រុមអ្នកជំនាញ ប្តេជ្ញាចិត្តនឹងភាពជោគជ័យរបស់អ្នក",
+    "about.why.point1": "ក្រុមការងារអ្នកជំនាញ IT ដែលមានបទពិសោធន៍",
+    "about.why.point2": "កំណត់ត្រាជោគជ័យនៃគម្រោងដែលបានបញ្ចប់",
+    "about.why.point3": "ការប្តេជ្ញាចិត្តចំពោះការពេញចិត្តរបស់អតិថិជន",
+    "about.why.point4": "តម្លៃប្រកួតប្រជែង",
+    "about.why.point5": "ការច្នៃប្រឌិត និងបច្ចុប្បន្នភាពបច្ចេកវិទ្យាជាបន្តបន្ទាប់",
     "about.years": "ឆ្នាំ",
     "about.projects": "គម្រោង",
     "about.satisfaction": "ពេញចិត្ត",

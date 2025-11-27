@@ -1,7 +1,7 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import { Target, Users } from "lucide-react"
+import { Target } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export default function About() {
@@ -47,32 +47,40 @@ export default function About() {
             </div>
           </div>
 
-          <div
-            className={`space-y-8 ${inView ? "animate-fade-in-up" : "opacity-0"}`}
-            style={{ animationDelay: "200ms" }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <Users className="w-10 h-10 text-primary" />
-              <h2 className="text-4xl font-bold text-foreground">{t("about.why")}</h2>
-            </div>
+          <div className={`${inView ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: "200ms" }}>
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-background via-rose-50/80 to-pink-100/90 p-12 shadow-xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-rose-50/50 to-pink-100/70" />
 
-            <div className="glass-ultra rounded-3xl p-8 border-2 border-primary/50 shadow-xl shadow-primary/50 transition-smooth hover:shadow-2xl hover:shadow-primary/60 hover:scale-105">
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { icon: "📅", num: "5+", label: t("about.years") },
-                  { icon: "🚀", num: "50+", label: t("about.projects") },
-                  { icon: "⭐", num: "100%", label: t("about.satisfaction") },
-                  { icon: "🏆", num: "24/7", label: t("about.support") },
-                ].map((stat, i) => (
-                  <div
-                    key={i}
-                    className="text-center glass rounded-2xl p-6 hover:glass-strong transition-smooth hover:scale-110"
-                  >
-                    <div className="text-4xl mb-2">{stat.icon}</div>
-                    <div className="text-3xl font-bold text-primary">{stat.num}</div>
-                    <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-                  </div>
-                ))}
+              <div className="relative z-10 space-y-8">
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent leading-tight">
+                  {t("about.why")}
+                </h2>
+
+                <div className="space-y-6 mt-12">
+                  {[
+                    t("about.why.point1"),
+                    t("about.why.point2"),
+                    t("about.why.point3"),
+                    t("about.why.point4"),
+                    t("about.why.point5"),
+                  ].map((text, i) => (
+                    <div
+                      key={i}
+                      className={`flex items-start gap-4 ${inView ? "animate-fade-in-left" : "opacity-0"}`}
+                      style={{ animationDelay: `${(i + 2) * 100}ms` }}
+                    >
+                      <div className="flex-shrink-0 mt-1">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="text-primary">
+                          <path
+                            d="M10 0L12.5 7.5L20 10L12.5 12.5L10 20L7.5 12.5L0 10L7.5 7.5L10 0Z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </div>
+                      <p className="text-lg md:text-xl text-primary font-medium leading-relaxed">{text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
