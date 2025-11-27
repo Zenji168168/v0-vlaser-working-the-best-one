@@ -125,10 +125,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    /* Added touch optimization for mobile devices */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   html {
     scroll-behavior: smooth;
+    /* Improved scrolling performance on mobile */
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -138,6 +144,21 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Mobile-specific optimizations for smoother performance */
+  @media (max-width: 768px) {
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
   }
 }
@@ -150,6 +171,11 @@
   box-shadow: 0 8px 32px rgba(123, 45, 45, 0.1), inset 0 1px 0 rgba(255, 252, 250, 0.6);
   transform: translateZ(0);
   will-change: transform;
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    backdrop-filter: blur(15px) saturate(160%);
+    -webkit-backdrop-filter: blur(15px) saturate(160%);
+  }
 }
 
 .glass-strong {
@@ -172,6 +198,11 @@
     rgba(123, 45, 45, 0.1);
   transform: translateZ(0);
   will-change: transform;
+  /* Reduced blur on mobile for better performance */
+  @media (max-width: 768px) {
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+  }
 }
 
 .glass-card {
@@ -183,6 +214,7 @@
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 252, 250, 0.7);
 }
 
+/* Optimized animations with hardware acceleration for smooth mobile performance */
 @keyframes floatBlob {
   0%,
   100% {
@@ -240,6 +272,45 @@
   66% {
     transform: translate3d(70px, 50px, 0) scale(0.85);
     opacity: 0.6;
+  }
+}
+
+/* Mobile-optimized version with reduced movement */
+@media (max-width: 768px) {
+  @keyframes floatBlob {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate3d(-40px, 40px, 0) scale(1.05) rotate(180deg);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes floatBlobSlow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+      opacity: 0.35;
+    }
+    50% {
+      transform: translate3d(30px, -30px, 0) rotate(180deg) scale(1.05);
+      opacity: 0.45;
+    }
+  }
+
+  @keyframes floatBlobFast {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.45;
+    }
+    50% {
+      transform: translate3d(-35px, 35px, 0) scale(1.1);
+      opacity: 0.5;
+    }
   }
 }
 
@@ -498,6 +569,7 @@
   backface-visibility: hidden;
 }
 
+/* Enhanced animation classes with better mobile performance */
 .animate-float-blob,
 .animate-float-blob-slow,
 .animate-float-blob-fast {
@@ -505,6 +577,10 @@
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+  /* Reduce animation intensity on mobile */
+  @media (max-width: 768px) {
+    animation-duration: 20s;
+  }
 }
 
 .animate-float-blob {
@@ -540,16 +616,28 @@
 .animate-fade-in-up {
   animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   backface-visibility: hidden;
+  /* Faster animations on mobile for snappier feel */
+  @media (max-width: 768px) {
+    animation-duration: 0.6s;
+  }
 }
 
 .animate-fade-in {
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   backface-visibility: hidden;
+  /* Faster fade-in on mobile */
+  @media (max-width: 768px) {
+    animation-duration: 0.5s;
+  }
 }
 
 .animate-scale-in {
   animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   backface-visibility: hidden;
+  /* Faster scale animation on mobile */
+  @media (max-width: 768px) {
+    animation-duration: 0.4s;
+  }
 }
 
 .gradient-text {
