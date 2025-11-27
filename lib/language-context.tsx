@@ -55,6 +55,8 @@ const translations: Record<Language, Record<string, string>> = {
     // Services
     "services.title": "Our Services",
     "services.subtitle": "Comprehensive IT solutions tailored to your business needs",
+    "services.cctv.title": "CCTV Systems",
+    "services.cctv.desc": "Professional surveillance solutions for security monitoring",
     "services.consulting.title": "IT Consulting",
     "services.consulting.desc": "Expert guidance for your digital transformation",
     "services.network.title": "Network Setup",
@@ -65,8 +67,6 @@ const translations: Record<Language, Record<string, string>> = {
     "services.webdev.desc": "Modern, responsive web solutions",
     "services.wifi.title": "Wifi Connections",
     "services.wifi.desc": "High-speed wireless network installation and management",
-    "services.cctv.title": "CCTV Systems",
-    "services.cctv.desc": "Professional surveillance solutions for security monitoring",
 
     // Portfolio
     "portfolio.title": "Our Portfolio",
@@ -139,18 +139,18 @@ const translations: Record<Language, Record<string, string>> = {
     // Services
     "services.title": "សេវាកម្មរបស់យើង",
     "services.subtitle": "ដំណោះស្រាយ IT ដ៏ទូលំទូលាយ ត្រូវបានរចនាឡើងតាមតម្រូវការអាជីវកម្មរបស់អ្នក",
+    "services.cctv.title": "ប្រព័ន្ធកាមេរ៉ាសុវត្ថិភាព",
+    "services.cctv.desc": "ដំណោះស្រាយការត្រួតពិនិត្យរាបការពារសុវត្ថិភាពដែលមានការអនុវត្តវិជ្ជាជីវៈ",
     "services.consulting.title": "ការប្រឹក្សា IT",
     "services.consulting.desc": "ការណែនាំពីអ្នកជំនាញសម្រាប់ការផ្លាស់ប្តូរឌីជីថលរបស់អ្នក",
     "services.network.title": "ការតម្លើង Network",
     "services.network.desc": "ហេដ្ឋារចនាសម្ព័ន្ធបណ្តាញដែលមានសុវត្ថិភាព និងអាចពង្រីកបាន",
-    "services.security.title": "សុវត្ថិភាពតាមអ៊ីនធឺណិត",
+    "services.security.title": "សុវត្ថិភាបណ្តាញនិម្មិត",
     "services.security.desc": "ការពារអាជីវកម្មរបស់អ្នកពីការគំរាមកំហែងឌីជីថល",
     "services.webdev.title": "ការអភិវឌ្ឍគេហទំព័រ",
     "services.webdev.desc": "ដំណោះស្រាយគេហទំព័រទំនើប និងឆ្លើយតប",
     "services.wifi.title": "ការតភ្ជាប់ Wifi",
-    "services.wifi.desc": "ការដំឡើង និងគ្រប់គ្រងបណ្តាញឥតលួស ល្បឿនលឿន",
-    "services.cctv.title": "ប្រព័ន្ធកាំមេរ៉ា​សុវត្ថិភាព",
-    "services.cctv.desc": "ដំណោះស្រាយម៉ាកាទិកឯកទេស សម្រាប់ការត្រួតពិនិត្យសុវត្ថិភាព",
+    "services.wifi.desc": "ការដំឡើង និងគ្រប់គ្រងបណ្តាញឥតលួសល្បឿនលឿន",
 
     // Portfolio
     "portfolio.title": "ផលិតផលរបស់យើង",
@@ -160,7 +160,7 @@ const translations: Record<Language, Record<string, string>> = {
     "portfolio.project3": "ដំណោះស្រាយការផ្លាស់ទី Cloud",
     "portfolio.project4": "សេវាកម្មប្រឹក្សា IT",
     "portfolio.project5": "ការគ្រប់គ្រង Data Center",
-    "portfolio.project6": "ដំណោះស្រាយសុវត្ថិភាពតាមអ៊ីនធឺណិត",
+    "portfolio.project6": "ដំណោះស្រាយសុវត្ថិភាបណ្តាញនិម្មិត",
 
     // Clients
     "clients.title": "អតិថិជនរបស់យើង",
