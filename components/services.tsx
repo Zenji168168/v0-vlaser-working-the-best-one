@@ -1,7 +1,7 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import { Monitor, Shield, Cloud, Code } from "lucide-react"
+import { Monitor, Shield, Cloud, Code, Wifi, Camera } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export default function Services() {
@@ -29,6 +29,16 @@ export default function Services() {
       descKey: "services.webdev.desc",
       icon: Code,
     },
+    {
+      titleKey: "services.wifi.title",
+      descKey: "services.wifi.desc",
+      icon: Wifi,
+    },
+    {
+      titleKey: "services.cctv.title",
+      descKey: "services.cctv.desc",
+      icon: Camera,
+    },
   ]
 
   return (
@@ -47,7 +57,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (

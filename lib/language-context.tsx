@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useState, type ReactNode } from "react"
+import { Languages } from "lucide-react"
 
 type Language = "en" | "km"
 
@@ -8,6 +9,7 @@ interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: string) => string
+  isChanging: boolean
 }
 
 const translations: Record<Language, Record<string, string>> = {
@@ -56,6 +58,10 @@ const translations: Record<Language, Record<string, string>> = {
     "services.security.desc": "Protect your business from digital threats",
     "services.webdev.title": "Web Development",
     "services.webdev.desc": "Modern, responsive web solutions",
+    "services.wifi.title": "Wifi Connections",
+    "services.wifi.desc": "High-speed wireless network installation and management",
+    "services.cctv.title": "CCTV Systems",
+    "services.cctv.desc": "Professional surveillance solutions for security monitoring",
 
     // Portfolio
     "portfolio.title": "Our Portfolio",
@@ -131,6 +137,10 @@ const translations: Record<Language, Record<string, string>> = {
     "services.security.desc": "ការពារអាជីវកម្មរបស់អ្នកពីការគំរាមកំហែងឌីជីថល",
     "services.webdev.title": "ការអភិវឌ្ឍគេហទំព័រ",
     "services.webdev.desc": "ដំណោះស្រាយគេហទំព័រទំនើប និងឆ្លើយតប",
+    "services.wifi.title": "ការតភ្ជាប់ Wifi",
+    "services.wifi.desc": "ការដំឡើង និងគ្រប់គ្រងបណ្តាញឥតលួស ល្បឿនលឿន",
+    "services.cctv.title": "ប្រព័ន្ធ CCTV",
+    "services.cctv.desc": "ដំណោះស្រាយម៉ាកាទិកឯកទេស សម្រាប់ការត្រួតពិនិត្យសុវត្ថិភាព",
 
     // Portfolio
     "portfolio.title": "ផលិតផលរបស់យើង",
@@ -167,9 +177,16 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
+  const [isChanging, setIsChanging] = useState(false)
 
   const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang)
+    setIsChanging(true)
+    setTimeout(() => {
+      setLanguage(lang)
+      setTimeout(() => {
+        setIsChanging(false)
+      }, 300)
+    }, 400)
   }
 
   const t = (key: string): string => {
@@ -177,8 +194,45 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t }}>
-      {children}
+    <LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, isChanging }}>
+      {isChanging && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-rose-50/95 via-amber-50/95 to-pink-50/95 backdrop-blur-md animate-fade-in">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-full blur-3xl animate-float-blob" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full blur-3xl animate-float-blob-slow" />
+          </div>
+          <div className="relative flex flex-col items-center gap-6">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-24 h-24 rounded-full border-4 border-primary/30 animate-ping" />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="w-32 h-32 rounded-full border-2 border-accent/20"
+                  style={{ animation: "languageRipple 2s ease-out infinite" }}
+                />
+              </div>
+              <div className="relative glass-ultra rounded-full p-6 animate-bounce-in-scale">
+                <Languages className="w-12 h-12 text-primary animate-spin" style={{ animationDuration: "3s" }} />
+              </div>
+            </div>
+            <div className="text-center space-y-2 animate-fade-in-up">
+              <h3 className="text-2xl font-bold gradient-text">
+                {language === "en" ? "Switching Language..." : "កំពុងប្តូរភាសា..."}
+              </h3>
+              <p className="text-primary/70 text-sm">{language === "en" ? "Please wait" : "សូមរង់ចាំ"}</p>
+            </div>
+            <div className="flex gap-2">
+              <div className="w-3 h-3 rounded-full bg-primary animate-bounce" style={{ animationDelay: "0s" }} />
+              <div className="w-3 h-3 rounded-full bg-accent animate-bounce" style={{ animationDelay: "0.2s" }} />
+              <div className="w-3 h-3 rounded-full bg-primary animate-bounce" style={{ animationDelay: "0.4s" }} />
+            </div>
+          </div>
+        </div>
+      )}
+      <div className={`transition-all duration-300 ${isChanging ? "scale-95 opacity-50" : "scale-100 opacity-100"}`}>
+        {children}
+      </div>
     </LanguageContext.Provider>
   )
 }
