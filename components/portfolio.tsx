@@ -50,15 +50,13 @@ export default function Portfolio() {
 
   return (
     <>
-      <section
-        id="portfolio"
-        ref={sectionRef}
-        className="relative py-20 md:py-32 bg-gradient-to-br from-background via-secondary/30 to-muted/20 overflow-hidden"
-      >
-        <div className="absolute inset-0 opacity-50">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-primary/40 to-accent/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob" />
-          <div className="absolute bottom-1/4 right-1/4 w-[480px] h-[480px] bg-gradient-to-br from-accent/40 to-destructive/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob-slow" />
-          <div className="absolute top-1/2 right-1/3 w-[450px] h-[450px] bg-gradient-to-br from-primary/35 to-accent/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob-fast" />
+      <section id="portfolio" ref={sectionRef} className="relative py-20 md:py-32 bg-white overflow-hidden">
+        <div className="absolute inset-0 opacity-50 pointer-events-none">
+          <div className="absolute top-[15%] left-[10%] w-[500px] h-[500px] bg-[#dbeafe] opacity-[0.09] rounded-full blur-[100px] animate-gentle-float" />
+          <div
+            className="absolute bottom-[20%] right-[15%] w-[480px] h-[480px] bg-[#dbeafe] opacity-[0.08] rounded-full blur-[120px] animate-gentle-float-alt"
+            style={{ animationDelay: "5s" }}
+          />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -85,8 +83,8 @@ export default function Portfolio() {
                 style={{ transitionDelay: isVisible ? `${index * 100}ms` : "0ms" }}
                 onClick={() => handleOpenModal({ ...image, title: t(image.titleKey) })}
               >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-strong p-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-background/50 group-hover:border-primary/20 transition-colors duration-500">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/90 backdrop-blur-sm p-4 shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/50 transition-all duration-500 border border-slate-100">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden border-2 border-slate-100 group-hover:border-blue-200 transition-colors duration-500">
                     <Image
                       src={image.src || "/placeholder.svg?height=400&width=600"}
                       alt={image.alt}
@@ -94,17 +92,11 @@ export default function Portfolio() {
                       className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 glass opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                      <h3 className="text-primary-foreground font-semibold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1e293b]/80 via-[#1e293b]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <h3 className="text-white font-semibold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                         {t(image.titleKey)}
                       </h3>
                     </div>
-
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </div>
               </div>

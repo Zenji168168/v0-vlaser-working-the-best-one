@@ -42,10 +42,10 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" ref={ref} className="py-32 relative overflow-hidden">
+    <section id="services" ref={ref} className="py-32 relative overflow-hidden bg-white">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 right-20 w-96 h-96 bg-gradient-to-br from-blue-100/60 to-indigo-100/50 blur-3xl rounded-full animate-gentle-float" />
-        <div className="absolute bottom-1/3 left-20 w-80 h-80 bg-gradient-to-br from-slate-100/70 to-blue-100/60 blur-3xl rounded-full animate-gentle-float-alt" />
+        <div className="absolute top-[20%] right-[10%] w-[450px] h-[450px] bg-[#dbeafe] opacity-[0.09] blur-[100px] rounded-full animate-gentle-float" />
+        <div className="absolute bottom-[20%] left-[15%] w-[400px] h-[400px] bg-[#dbeafe] opacity-[0.08] blur-[120px] rounded-full animate-gentle-float-alt" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -64,16 +64,22 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/50 transition-all duration-300 hover:scale-[1.02] group cursor-pointer border border-slate-100 ${
+                className={`bg-white/90 backdrop-blur-sm p-8 rounded-2xl shadow-md shadow-slate-200/50 hover:shadow-xl hover:shadow-slate-300/50 transition-all duration-300 hover:scale-[1.03] group cursor-pointer border border-slate-100 ${
                   inView ? "animate-soft-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="mb-6 w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors duration-300">
-                  <Icon className="w-7 h-7 text-slate-600 group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-50/0 group-hover:from-blue-50/30 group-hover:to-indigo-50/20 rounded-2xl transition-all duration-300 pointer-events-none" />
+
+                <div className="relative z-10">
+                  <div className="mb-6 w-14 h-14 rounded-xl bg-slate-100 flex items-center justify-center group-hover:bg-blue-50 transition-colors duration-300">
+                    <Icon className="w-7 h-7 text-slate-600 group-hover:text-blue-600 group-hover:scale-110 transition-all duration-300" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-[#1e293b] transition-colors duration-300">
+                    {t(service.titleKey)}
+                  </h3>
+                  <p className="text-base text-muted-foreground font-light leading-relaxed">{t(service.descKey)}</p>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">{t(service.titleKey)}</h3>
-                <p className="text-base text-muted-foreground font-light leading-relaxed">{t(service.descKey)}</p>
               </div>
             )
           })}

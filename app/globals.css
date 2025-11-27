@@ -645,29 +645,27 @@
   backface-visibility: hidden;
 }
 
-/* Added soft fade-in scroll animations */
-@keyframes softFadeIn {
-  from {
-    opacity: 0;
-    -webkit-transform: translateY(20px);
-    transform: translateY(20px);
+/* Adding missing animation keyframes for white theme */
+@keyframes gentleFloat {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
-  to {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+  50% {
+    -webkit-transform: translate3d(30px, -30px, 0);
+    transform: translate3d(30px, -30px, 0);
   }
 }
 
-@keyframes gentleScale {
-  from {
-    opacity: 0;
-    -webkit-transform: scale(0.95);
-    transform: scale(0.95);
+@keyframes gentleFloatAlt {
+  0%,
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
   }
-  to {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    transform: scale(1);
+  50% {
+    -webkit-transform: translate3d(-30px, 30px, 0);
+    transform: translate3d(-30px, 30px, 0);
   }
 }
