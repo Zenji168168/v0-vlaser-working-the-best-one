@@ -76,6 +76,8 @@
 
 @theme inline {
   --font-sans: var(--font-poppins), "Inter", "SF Pro Display", "system-ui", "sans-serif";
+  /* Added Kantumruy Pro font variable for Khmer text */
+  --font-khmer: var(--font-kantumruy), "Noto Sans Khmer", "Khmer OS", "sans-serif";
   --color-background: rgb(var(--background));
   --color-foreground: rgb(var(--foreground));
   --color-card: rgb(var(--card));
@@ -160,6 +162,11 @@
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
     }
+  }
+
+  /* Added font-khmer class for Khmer language support */
+  .font-khmer {
+    font-family: var(--font-khmer);
   }
 }
 

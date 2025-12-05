@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 import { Languages } from "lucide-react"
 
 type Language = "en" | "km"
@@ -188,6 +188,18 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("en")
   const [isChanging, setIsChanging] = useState(false)
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (language === "km") {
+        document.body.classList.add("font-khmer")
+        document.body.classList.remove("font-sans")
+      } else {
+        document.body.classList.remove("font-khmer")
+        document.body.classList.add("font-sans")
+      }
+    }
+  }, [language])
 
   const handleSetLanguage = (lang: Language) => {
     setIsChanging(true)
