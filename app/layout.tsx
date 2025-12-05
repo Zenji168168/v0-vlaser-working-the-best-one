@@ -1,16 +1,8 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Poppins, Kantumruy_Pro } from "next/font/google"
+import { Kantumruy_Pro } from "next/font/google"
 import "./globals.css"
 import { LanguageProvider } from "@/lib/language-context"
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-poppins",
-  display: "swap",
-  preload: true,
-})
 
 const kantumruyPro = Kantumruy_Pro({
   subsets: ["khmer", "latin"],
@@ -60,7 +52,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${poppins.variable} ${kantumruyPro.variable} font-sans antialiased`}>
+      <body className={`${kantumruyPro.variable} font-sans antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

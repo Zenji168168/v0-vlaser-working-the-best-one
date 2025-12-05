@@ -75,7 +75,8 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-poppins), "Inter", "SF Pro Display", "system-ui", "sans-serif";
+  /* Changed default font to Times New Roman for English */
+  --font-sans: "Times New Roman", "Times", "serif";
   /* Added Kantumruy Pro font variable for Khmer text */
   --font-khmer: var(--font-kantumruy), "Noto Sans Khmer", "Khmer OS", "sans-serif";
   --color-background: rgb(var(--background));
