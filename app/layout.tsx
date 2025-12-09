@@ -1,8 +1,16 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Kantumruy_Pro } from "next/font/google"
+import { Inter, Kantumruy_Pro } from "next/font/google"
 import "./globals.css"
 import { LanguageProvider } from "@/lib/language-context"
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
+})
 
 const kantumruyPro = Kantumruy_Pro({
   subsets: ["khmer", "latin"],
@@ -52,7 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${kantumruyPro.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${kantumruyPro.variable} font-sans antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

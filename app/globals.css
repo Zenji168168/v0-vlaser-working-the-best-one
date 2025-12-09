@@ -76,7 +76,7 @@
 
 @theme inline {
   /* Changed default font to Times New Roman for English */
-  --font-sans: "Times New Roman", "Times", "serif";
+  --font-sans: "Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif";
   /* Added Kantumruy Pro font variable for Khmer text */
   --font-khmer: var(--font-kantumruy), "Noto Sans Khmer", "Khmer OS", "sans-serif";
   --color-background: rgb(var(--background));
@@ -125,10 +125,11 @@
   body {
     @apply bg-white text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    /* Added touch optimization for mobile devices */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* Added touch optimization for mobile devices */
+    letter-spacing: -0.011em;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
   }
@@ -172,44 +173,40 @@
 }
 
 .glass {
-  background: rgba(255, 252, 250, 0.25);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 0 8px 32px rgba(123, 45, 45, 0.1), inset 0 1px 0 rgba(255, 252, 250, 0.6);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 1px 0 rgba(255, 255, 255, 0.8) inset;
   transform: translateZ(0);
   will-change: transform;
-  /* Mobile optimization */
   @media (max-width: 768px) {
-    backdrop-filter: blur(15px) saturate(160%);
-    -webkit-backdrop-filter: blur(15px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
   }
 }
 
 .glass-strong {
-  background: rgba(255, 252, 250, 0.35);
-  backdrop-filter: blur(30px) saturate(200%);
-  -webkit-backdrop-filter: blur(30px) saturate(200%);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 0 12px 40px rgba(123, 45, 45, 0.15), inset 0 1px 0 rgba(255, 252, 250, 0.7), 0 0 0 1px
-    rgba(123, 45, 45, 0.05);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08), 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 0 0 1px rgba(0, 0, 0, 0.02);
   transform: translateZ(0);
   will-change: transform;
 }
 
 .glass-ultra {
-  background: rgba(255, 252, 250, 0.45);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(40px) saturate(220%);
   -webkit-backdrop-filter: blur(40px) saturate(220%);
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  box-shadow: 0 16px 50px rgba(123, 45, 45, 0.2), inset 0 2px 0 rgba(255, 252, 250, 0.8), 0 0 0 1px
-    rgba(123, 45, 45, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.1), 0 2px 0 rgba(255, 255, 255, 1) inset, 0 0 0 1px rgba(0, 0, 0, 0.03);
   transform: translateZ(0);
   will-change: transform;
-  /* Reduced blur on mobile for better performance */
   @media (max-width: 768px) {
-    backdrop-filter: blur(25px) saturate(180%);
-    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
   }
 }
 
@@ -355,11 +352,11 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 50px, 0) scale(0.95);
+    transform: translate3d(0, 32px, 0);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -655,4 +652,23 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientShift 5s ease infinite;
+}
+
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  @media (max-width: 768px) {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.shadow-modern {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-modern-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-modern-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }

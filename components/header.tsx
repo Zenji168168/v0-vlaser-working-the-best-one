@@ -54,14 +54,14 @@ export default function Header() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-all duration-500 ${
-          isScrolled ? "glass-strong shadow-lg shadow-border/50" : "bg-background/95"
+        className={`sticky top-0 z-50 transition-all duration-300 ${
+          isScrolled ? "glass-strong shadow-modern-lg border-b border-border/50" : "bg-white/95"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4">
-          <div className="flex items-center justify-between gap-2 sm:gap-4">
-            <Link href="/" className="flex items-center gap-1.5 sm:gap-2 md:gap-3 group flex-shrink-0">
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-xl overflow-hidden transform group-hover:scale-110 transition-transform duration-300">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-3">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-xl overflow-hidden transform group-hover:scale-105 transition-smooth shadow-modern">
                 <Image
                   src="/vlaser-logo.png"
                   alt="Vlaser Logo"
@@ -72,33 +72,33 @@ export default function Header() {
                 />
               </div>
               <div className="hidden sm:block">
-                <div className="text-[10px] sm:text-xs md:text-sm lg:text-base font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                <div className="text-xs sm:text-sm font-bold text-foreground group-hover:text-primary transition-smooth leading-tight tracking-tight">
                   វីឡាសឺសូលូសិន ខេមបូឌា ឯ.ក
                 </div>
-                <div className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-semibold text-muted-foreground group-hover:text-primary transition-colors leading-tight">
+                <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground group-hover:text-primary transition-smooth leading-tight">
                   Vlaser Solution Cambodia Co., Ltd
                 </div>
               </div>
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="relative text-sm font-medium text-foreground/70 hover:text-primary transition-all duration-300 hover:scale-110 group"
+                  className="relative px-4 py-2 text-sm font-medium text-foreground/70 hover:text-primary transition-smooth hover:bg-secondary/50 rounded-lg group"
                 >
                   {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary group-hover:w-3/4 transition-all duration-300 rounded-full"></span>
                 </button>
               ))}
             </nav>
 
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-shrink-0">
+            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
               <LanguageToggle />
               <Button
                 size="sm"
-                className="glass-strong hover:glass text-primary hover:text-primary font-medium text-[10px] sm:text-xs md:text-sm shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-110 transition-all duration-300 border border-primary/20 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs sm:text-sm shadow-modern hover:shadow-modern-lg hover:scale-105 transition-smooth px-3 sm:px-6 py-2 rounded-lg"
                 onClick={() => setIsQRModalOpen(true)}
               >
                 <span className="hidden sm:inline">{t("header.contact")}</span>
@@ -107,7 +107,7 @@ export default function Header() {
             </div>
 
             <button
-              className="lg:hidden text-foreground p-2"
+              className="lg:hidden text-foreground p-2 hover:bg-secondary/50 rounded-lg transition-smooth"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -127,7 +127,7 @@ export default function Header() {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left py-3 px-2 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-secondary/50 rounded-lg transition-all"
+                  className="block w-full text-left py-3 px-4 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-secondary/50 rounded-lg transition-smooth"
                 >
                   {link.name}
                 </button>
