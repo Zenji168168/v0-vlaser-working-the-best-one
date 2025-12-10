@@ -4,15 +4,12 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import QRModal from "./qr-modal"
 import { useLanguage } from "@/lib/language-context"
 import LanguageToggle from "./language-toggle"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isQRModalOpen, setIsQRModalOpen] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
   const { t } = useLanguage()
@@ -96,14 +93,19 @@ export default function Header() {
 
             <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
               <LanguageToggle />
-              <Button
-                size="sm"
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-xs sm:text-sm shadow-modern hover:shadow-modern-lg hover:scale-105 transition-smooth px-3 sm:px-6 py-2 rounded-lg"
-                onClick={() => setIsQRModalOpen(true)}
+              <a
+                href="https://t.me/SANGHAMEUK"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-[#7B2D2D] via-[#8B3A3A] to-[#D4AF37] text-white rounded-full hover:shadow-xl hover:scale-105 transition-all duration-300 group relative overflow-hidden"
+                aria-label="Contact via Telegram"
               >
-                <span className="hidden sm:inline">{t("header.contact")}</span>
-                <span className="sm:hidden">Contact</span>
-              </Button>
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <svg className="w-4 h-4 relative z-10" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L8.08 13.768l-2.994-.924c-.653-.204-.657-.653.136-.969l11.566-4.458c.538-.196 1.006.128.832.804z" />
+                </svg>
+                <span className="text-sm font-semibold relative z-10">Contact</span>
+              </a>
             </div>
 
             <button
@@ -113,7 +115,7 @@ export default function Header() {
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12M6 12h16" />
                 ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
@@ -136,8 +138,6 @@ export default function Header() {
           )}
         </div>
       </header>
-
-      <QRModal isOpen={isQRModalOpen} onClose={() => setIsQRModalOpen(false)} />
     </>
   )
 }
