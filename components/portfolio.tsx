@@ -50,61 +50,39 @@ export default function Portfolio() {
 
   return (
     <>
-      <section
-        id="portfolio"
-        ref={sectionRef}
-        className="relative py-20 md:py-32 bg-gradient-to-br from-background via-secondary/30 to-muted/20 overflow-hidden"
-      >
-        <div className="absolute inset-0 opacity-50">
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-br from-primary/40 to-accent/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob" />
-          <div className="absolute bottom-1/4 right-1/4 w-[480px] h-[480px] bg-gradient-to-br from-accent/40 to-destructive/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob-slow" />
-          <div className="absolute top-1/2 right-1/3 w-[450px] h-[450px] bg-gradient-to-br from-primary/35 to-accent/30 rounded-full mix-blend-multiply filter blur-3xl animate-float-blob-fast" />
-        </div>
-
+      <section id="portfolio" ref={sectionRef} className="relative py-20 md:py-24 bg-white">
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div
-            className={`text-center mb-16 transition-all duration-800 ${
+            className={`text-center mb-16 transition-all duration-700 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              {t("portfolio.title")}
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              {t("portfolio.subtitle")}
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">{t("portfolio.title")}</h2>
+            <p className="text-lg text-primary/70 max-w-2xl mx-auto">{t("portfolio.subtitle")}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioImages.map((image, index) => (
               <div
                 key={image.id}
-                className={`group cursor-pointer transition-all duration-600 ${
+                className={`group cursor-pointer transition-all duration-500 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                } hover:-translate-y-2`}
-                style={{ transitionDelay: isVisible ? `${index * 100}ms` : "0ms" }}
+                }`}
+                style={{ transitionDelay: isVisible ? `${index * 80}ms` : "0ms" }}
                 onClick={() => handleOpenModal({ ...image, title: t(image.titleKey) })}
               >
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-strong p-4 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500">
-                  <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-background/50 group-hover:border-primary/20 transition-colors duration-500">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300">
+                  <div className="relative w-full h-full">
                     <Image
                       src={image.src || "/placeholder.svg?height=400&width=600"}
                       alt={image.alt}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 glass opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                      <h3 className="text-primary-foreground font-semibold text-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        {t(image.titleKey)}
-                      </h3>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <h3 className="text-white font-semibold text-lg">{t(image.titleKey)}</h3>
                     </div>
-
-                    <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </div>
               </div>
@@ -115,25 +93,26 @@ export default function Portfolio() {
 
       {selectedImage && (
         <div
-          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-300 ${
+          className={`fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 transition-opacity duration-300 ${
             isModalVisible ? "opacity-100" : "opacity-0"
           }`}
           onClick={handleCloseModal}
         >
           <button
-            className="absolute top-4 right-4 p-2 rounded-full glass-strong hover:glass-ultra text-foreground transition-all z-10 hover:scale-110"
+            className="absolute top-6 right-6 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all z-10"
             onClick={handleCloseModal}
+            aria-label="Close modal"
           >
             <X className="w-6 h-6" />
           </button>
 
           <div
-            className={`relative max-w-5xl w-full aspect-[4/3] glass-ultra p-6 rounded-2xl shadow-2xl transition-all duration-300 ${
-              isModalVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+            className={`relative max-w-5xl w-full aspect-[4/3] bg-white rounded-lg shadow-2xl transition-all duration-300 overflow-hidden ${
+              isModalVisible ? "scale-100 opacity-100" : "scale-95 opacity-0"
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-full rounded-xl overflow-hidden border-4 border-border">
+            <div className="relative w-full h-full">
               <Image
                 src={selectedImage.src || "/placeholder.svg"}
                 alt={selectedImage.alt}
@@ -142,8 +121,8 @@ export default function Portfolio() {
                 sizes="90vw"
               />
             </div>
-            <div className="absolute bottom-8 left-8 right-8 text-center">
-              <h3 className="text-xl font-semibold text-foreground">{selectedImage.title}</h3>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+              <h3 className="text-xl font-semibold text-white text-center">{selectedImage.title}</h3>
             </div>
           </div>
         </div>
