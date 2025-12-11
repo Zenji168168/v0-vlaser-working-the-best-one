@@ -104,7 +104,7 @@ export default function Header() {
                 <svg className="w-4 h-4 relative z-10" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121L8.08 13.768l-2.994-.924c-.653-.204-.657-.653.136-.969l11.566-4.458c.538-.196 1.006.128.832.804z" />
                 </svg>
-                <span className="text-sm font-semibold relative z-10">Contact</span>
+                <span className="text-sm font-semibold relative z-10">{t("header.contact")}</span>
               </a>
             </div>
 
