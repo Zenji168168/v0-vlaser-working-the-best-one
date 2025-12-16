@@ -30,7 +30,7 @@ export default function Contact() {
       icon: Phone,
       label: t("contact.phone.label"),
       value: (
-        <div className="space-y-1">
+        <div className="space-y-1.5">
           <div>012 989 784</div>
           <div>096 666 9545</div>
           <div>010 / 078 322 295</div>
@@ -45,36 +45,39 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" ref={sectionRef} className="py-24 md:py-32 bg-white">
+    <section id="contact" ref={sectionRef} className="py-28 md:py-36 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-12 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`text-center mb-16 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">{t("contact.title")}</h2>
-          <p className="text-lg text-primary/60">{t("contact.subtitle")}</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-5">{t("contact.title")}</h2>
+          <p className="text-lg text-primary/60 leading-relaxed">{t("contact.subtitle")}</p>
         </div>
 
         <div
-          className={`space-y-4 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          className={`space-y-5 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
-          style={{ transitionDelay: "150ms" }}
+          style={{ transitionDelay: "200ms" }}
         >
           {contactInfo.map((item, i) => {
             const Icon = item.icon
             return (
               <div
                 key={i}
-                className="flex items-start gap-4 bg-gray-50 rounded-xl p-6 border border-gray-100 hover:border-primary/10 hover:shadow-sm transition-all duration-300"
+                className={`flex items-start gap-5 bg-gray-50 rounded-2xl p-7 border border-gray-100 hover:border-primary/10 hover:shadow-soft hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+                }`}
+                style={{ transitionDelay: `${300 + i * 120}ms` }}
               >
-                <div className="w-10 h-10 bg-primary/5 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Icon className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="font-semibold text-primary mb-1">{item.label}</p>
-                  <div className="text-primary/60">{item.value}</div>
+                  <p className="font-semibold text-primary mb-2">{item.label}</p>
+                  <div className="text-primary/60 leading-relaxed">{item.value}</div>
                 </div>
               </div>
             )

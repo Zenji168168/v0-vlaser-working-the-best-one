@@ -25,34 +25,34 @@ export default function Clients() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.1, rootMargin: "0px" },
+      { threshold: 0.1, rootMargin: "50px" },
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
   return (
-    <section id="clients" ref={sectionRef} className="py-24 md:py-32 bg-gray-50/50">
+    <section id="clients" ref={sectionRef} className="py-28 md:py-36 bg-gray-50/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-16 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`text-center mb-20 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">{t("clients.title")}</h2>
-          <p className="text-lg text-primary/60 max-w-xl mx-auto">{t("clients.subtitle")}</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-5">{t("clients.title")}</h2>
+          <p className="text-lg text-primary/60 max-w-xl mx-auto leading-relaxed">{t("clients.subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-7">
           {clients.map((client, index) => (
             <div
               key={index}
-              className={`transition-all duration-500 ease-out ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              className={`transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
-              style={{ transitionDelay: `${150 + index * 60}ms` }}
+              style={{ transitionDelay: `${200 + index * 80}ms` }}
             >
-              <div className="bg-white rounded-xl p-6 border border-gray-100 hover:shadow-soft-lg hover:border-primary/10 transition-all duration-400 h-full flex flex-col items-center justify-center gap-4 hover-lift">
+              <div className="bg-white rounded-2xl p-6 lg:p-8 border border-gray-100 shadow-soft hover:shadow-soft-lg hover:border-primary/10 hover:-translate-y-2 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] h-full flex flex-col items-center justify-center gap-5">
                 <div className="w-full h-20 relative flex items-center justify-center">
                   <Image
                     src={client.logo || "/placeholder.svg"}
@@ -62,19 +62,19 @@ export default function Clients() {
                     sizes="(max-width: 768px) 50vw, 25vw"
                   />
                 </div>
-                <p className="text-sm text-primary/70 text-center font-medium">{client.name}</p>
+                <p className="text-sm text-primary/70 text-center font-medium leading-snug">{client.name}</p>
               </div>
             </div>
           ))}
         </div>
 
         <div
-          className={`mt-20 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`mt-24 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
-          style={{ transitionDelay: "500ms" }}
+          style={{ transitionDelay: "600ms" }}
         >
-          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24">
             {[
               { value: "50+", label: "Happy Clients" },
               { value: "100+", label: "Projects Completed" },
@@ -82,13 +82,13 @@ export default function Clients() {
             ].map((stat, i) => (
               <div
                 key={i}
-                className={`text-center transition-all duration-500 ease-out ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+                className={`text-center transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
-                style={{ transitionDelay: `${600 + i * 100}ms` }}
+                style={{ transitionDelay: `${750 + i * 120}ms` }}
               >
                 <div className="text-4xl md:text-5xl font-bold text-accent">{stat.value}</div>
-                <div className="text-sm text-primary/60 mt-2 font-medium">{stat.label}</div>
+                <div className="text-sm text-primary/60 mt-3 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>

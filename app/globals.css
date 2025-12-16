@@ -153,11 +153,11 @@
   }
 }
 
-/* Smooth animation keyframes with cubic-bezier easing */
+/* Add more smooth animation utilities and refined easing */
 @keyframes smoothFadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -177,7 +177,7 @@
 @keyframes smoothScale {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.96);
   }
   to {
     opacity: 1;
@@ -188,7 +188,7 @@
 @keyframes smoothSlideLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-24px);
   }
   to {
     opacity: 1;
@@ -199,7 +199,7 @@
 @keyframes smoothSlideRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(24px);
   }
   to {
     opacity: 1;
@@ -213,7 +213,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 }
 
@@ -223,104 +223,104 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
 
-/* Animation utility classes with smooth easing */
+/* Animation utility classes with refined easing */
 .animate-smooth-fade-up {
-  animation: smoothFadeUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: smoothFadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-smooth-fade-in {
-  animation: smoothFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: smoothFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-smooth-scale {
-  animation: smoothScale 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: smoothScale 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-smooth-slide-left {
-  animation: smoothSlideLeft 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: smoothSlideLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-smooth-slide-right {
-  animation: smoothSlideRight 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: smoothSlideRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-gentle-pulse {
-  animation: gentlePulse 2s ease-in-out infinite;
+  animation: gentlePulse 2.5s ease-in-out infinite;
 }
 
 .animate-subtle-float {
-  animation: subtleFloat 4s ease-in-out infinite;
+  animation: subtleFloat 5s ease-in-out infinite;
 }
 
-/* Smooth transition utilities */
+/* Smooth transition utilities with refined timing */
 .transition-smooth {
-  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .transition-smooth-fast {
-  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .transition-smooth-slow {
-  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hover effects with smooth transitions */
+/* Hover effects with polished transitions */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px -12px rgba(0, 0, 0, 0.12);
 }
 
 .hover-scale {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-scale:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .hover-glow {
-  transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 20px rgba(123, 45, 45, 0.15);
+  box-shadow: 0 0 24px rgba(123, 45, 45, 0.12);
 }
 
 /* Glass effects */
 .glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 /* Shadow utilities */
 .shadow-soft {
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.08), 0 4px 16px -4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 12px -4px rgba(0, 0, 0, 0.06), 0 4px 20px -8px rgba(0, 0, 0, 0.05);
 }
 
 .shadow-soft-lg {
-  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.1), 0 8px 24px -8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 16px -6px rgba(0, 0, 0, 0.08), 0 8px 28px -12px rgba(0, 0, 0, 0.06);
 }
 
 .shadow-soft-xl {
-  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.12), 0 16px 40px -16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 28px -10px rgba(0, 0, 0, 0.1), 0 16px 48px -20px rgba(0, 0, 0, 0.08);
 }
 
 /* Gradient text */
@@ -329,5 +329,24 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientShift 5s ease infinite;
+}
+
+/* Stagger animation delay utilities */
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+.stagger-6 {
+  animation-delay: 0.6s;
 }

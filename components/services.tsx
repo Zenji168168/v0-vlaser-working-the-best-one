@@ -14,7 +14,7 @@ export default function Services() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true)
       },
-      { threshold: 0.1, rootMargin: "0px" },
+      { threshold: 0.1, rootMargin: "50px" },
     )
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
@@ -30,32 +30,32 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" ref={sectionRef} className="py-24 md:py-32 bg-white">
+    <section id="services" ref={sectionRef} className="py-28 md:py-36 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`text-center mb-16 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`text-center mb-20 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">{t("services.title")}</h2>
-          <p className="text-lg text-primary/60 max-w-xl mx-auto">{t("services.subtitle")}</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-5">{t("services.title")}</h2>
+          <p className="text-lg text-primary/60 max-w-xl mx-auto leading-relaxed">{t("services.subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <div
                 key={index}
-                className={`group bg-white border border-gray-100 rounded-2xl p-8 hover:border-primary/20 hover:shadow-soft-lg transition-all duration-500 ease-out hover-lift ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                className={`group bg-white border border-gray-100 rounded-2xl p-8 lg:p-10 hover:border-primary/15 shadow-soft hover:shadow-soft-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
-                style={{ transitionDelay: `${150 + index * 80}ms` }}
+                style={{ transitionDelay: `${200 + index * 100}ms` }}
               >
-                <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 bg-primary/5 rounded-xl flex items-center justify-center mb-7 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                  <Icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-3">{t(service.titleKey)}</h3>
+                <h3 className="text-xl font-semibold text-primary mb-4">{t(service.titleKey)}</h3>
                 <p className="text-primary/60 leading-relaxed">{t(service.descKey)}</p>
               </div>
             )
