@@ -72,12 +72,24 @@ const translations: Record<Language, Record<string, string>> = {
     "portfolio.title": "Our Portfolio",
     "portfolio.subtitle":
       "Showcasing our innovative IT solutions and successful projects delivered to clients across Cambodia",
-    "portfolio.project1": "Network Infrastructure Setup",
-    "portfolio.project2": "Security System Implementation",
-    "portfolio.project3": "Cloud Migration Solution",
-    "portfolio.project4": "IT Consultation Service",
-    "portfolio.project5": "Data Center Management",
-    "portfolio.project6": "Cybersecurity Solution",
+    "portfolio.project1": "Enterprise CCTV Monitoring Wall",
+    "portfolio.project1.desc":
+      "Centralized surveillance display providing real-time monitoring across multiple zones for enhanced security and operational awareness.",
+    "portfolio.project2": "Parking Area CCTV & Infrastructure Setup",
+    "portfolio.project2.desc":
+      "Professional installation of security cameras and structured cabling to ensure full coverage in parking and common areas.",
+    "portfolio.project3": "Server Rack & Network Cabling Deployment",
+    "portfolio.project3.desc":
+      "Structured network cabling and server rack configuration for reliable, scalable, and secure IT infrastructure.",
+    "portfolio.project4": "Indoor CCTV Camera Installation",
+    "portfolio.project4.desc":
+      "Precision installation of indoor surveillance cameras designed for continuous monitoring and optimal coverage.",
+    "portfolio.project5": "High-Level Camera & Device Installation",
+    "portfolio.project5.desc":
+      "Skilled technicians installing security devices at height to ensure optimal positioning and maximum visibility.",
+    "portfolio.project6": "Security Control Room Configuration",
+    "portfolio.project6.desc":
+      "Complete setup of security control systems, integrating CCTV, monitoring displays, and network equipment for centralized management.",
 
     // Clients
     "clients.title": "Our Clients",
@@ -155,12 +167,23 @@ const translations: Record<Language, Record<string, string>> = {
     // Portfolio
     "portfolio.title": "ផលិតផលរបស់យើង",
     "portfolio.subtitle": "បង្ហាញពីដំណោះស្រាយ IT ច្នៃប្រឌិត និងគម្រោងជោគជ័យដែលបានផ្តល់ជូនដល់អតិថិជននៅទូទាំងប្រទេសកម្ពុជា",
-    "portfolio.project1": "ការតម្លើងហេដ្ឋារចនាសម្ព័ន្ធបណ្តាញ",
-    "portfolio.project2": "ការអនុវត្តប្រព័ន្ធសុវត្ថិភាព",
-    "portfolio.project3": "ដំណោះស្រាយការផ្លាស់ទី Cloud",
-    "portfolio.project4": "សេវាកម្មប្រឹក្សា IT",
-    "portfolio.project5": "ការគ្រប់គ្រង Data Center",
-    "portfolio.project6": "ដំណោះស្រាយសុវត្ថិភាបណ្តាញនិម្មិត",
+    "portfolio.project1": "ម៉ូនីទ័របង្កើនហេដ្ឋារចនាសម្ព័ន្ធលម្ម",
+    "portfolio.project1.desc":
+      "ការបង្ហាញការត្រួតពិនិត្យកណ្តាលផ្តល់នូវការឧទ្ទមភាពក្នុងលក្ស្ណៈពិតលក្ស្ណៈនៅលើតំបន់ច្រើនសម្រាប់សុវត្ថិភាព និងការយល់ដឹងនៃប្រតិបត្តិការដែលប្រសើរឡើង។",
+    "portfolio.project2": "ការដំឡើងលម្ម CCTV សម្រាប់តំបន់ឈានចេញ",
+    "portfolio.project2.desc":
+      "ការដំឡើងដែលមានការអនុវត្តវិជ្ជាជីវៈនៃកាមេរ៉ាសុវត្ថិភាព និងខ្សែបណ្តាញរចនាសម្ព័ន្ធដើម្បីធានាការគ្របដណ្តប់ពេញលេញក្នុងតំបន់ឈានចេញ និងតំបន់ធម្មតា។",
+    "portfolio.project3": "ការразвёртываниеយានដឹងតម្លៃរចនាសម្ព័ន្ធបណ្តាញ",
+    "portfolio.project3.desc":
+      "ខ្សែបណ្តាញរចនាសម្ព័ន្ធ និងការកំណត់រចនាសម្ព័ន្ធឌុំឆ័ក្រសម្រាប់ហេដ្ឋារចនាសម្ព័ន្ធ IT ដែលដឹងថ្នល់ ពង្រីកបាន និងលម្ងាច។",
+    "portfolio.project4": "ការដំឡើងកាមេរ៉ា CCTV អាផ្ទៃក្នុង",
+    "portfolio.project4.desc":
+      "ការដំឡើងក្នុងលម្អិតលម្អាតនៃកាមេរ៉ាចោលលម្ងាច ដែលរចនាឡើងសម្រាប់ការត្រួតពិនិត្យឥតឈប់ឈរ និងការគ្របដណ្តប់អតិបរមា។",
+    "portfolio.project5": "ការដំឡើងកាមេរ៉ា និងឧបករណ៍រៀងរាល់កំរិត",
+    "portfolio.project5.desc": "អ្នកបច្ចេកទេស្មាត ដំឡើងឧបករណ៍សុវត្ថិភាព នៅកម្រិតកម្ពស់ដើម្បីធានាក្នុងការដាក់ពង្រាយលម្អាត និងលក្ខណៈ ម្នាក់ក្នុង។",
+    "portfolio.project6": "ការកំណត់រចនាសម្ព័ន្ធបន្ទប់វត្ថុបរិវ្ឋានលម្ម",
+    "portfolio.project6.desc":
+      "ការកំណត់នៃប្រព័ន្ធស្វ័យប្រវត្តបន្ទប់វត្ថុបរិវ្ឋាន ដែលរួមបញ្ចូល CCTV បង្ហាញម៉ូនីទ័រ និងឧបករណ៍បណ្តាញសម្រាប់ការគ្របដណ្តប់កណ្តាល។",
 
     // Clients
     "clients.title": "អតិថិជនរបស់យើង",
