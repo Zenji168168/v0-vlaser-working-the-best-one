@@ -5,6 +5,8 @@ import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
 
 const clients = [
+  { name: "Northbridge International School Cambodia", logo: "/clients/northbridge-school.png" },
+  { name: "NorthPark Condominium", logo: "/clients/northpark-condo.png" },
   { name: "Caltex Station Sensok", logo: "/clients/caltex.png" },
   { name: "ផ្សារលើក្រុងកំពុងឆ្នាំង", logo: "/clients/market-kampong-chnang.png" },
   { name: "SENGHAN CO., LTD", logo: "/clients/senghan.png" },
@@ -13,6 +15,8 @@ const clients = [
   { name: "MEGABELLE BEAUTY CLINIC", logo: "/clients/megabelle.png" },
   { name: "AMATA RESIDENCE", logo: "/clients/amata.png" },
   { name: "MONY Clinic", logo: "/clients/mony-clinic.png" },
+  { name: "Inkyung Cambodia Co. Ltd", logo: "/clients/activatec3-hostel.png" },
+  { name: "ActivateC3 Hostel", logo: "/clients/inkyung-cambodia.png" },
 ]
 
 export default function Clients() {

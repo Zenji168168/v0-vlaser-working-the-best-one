@@ -6,12 +6,15 @@ import { X } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 const portfolioImages = [
+  { id: 0, src: "/portfolio/project-0.jpg", alt: "Project 0", titleKey: "portfolio.project0" },
   { id: 1, src: "/portfolio/project-1.jpg", alt: "Project 1", titleKey: "portfolio.project1" },
   { id: 2, src: "/portfolio/project-2.jpg", alt: "Project 2", titleKey: "portfolio.project2" },
   { id: 3, src: "/portfolio/project-3.jpg", alt: "Project 3", titleKey: "portfolio.project3" },
   { id: 4, src: "/portfolio/project-4.jpg", alt: "Project 4", titleKey: "portfolio.project4" },
   { id: 5, src: "/portfolio/project-5.jpg", alt: "Project 5", titleKey: "portfolio.project5" },
   { id: 6, src: "/portfolio/project-6.jpg", alt: "Project 6", titleKey: "portfolio.project6" },
+  { id: 7, src: "/portfolio/project-7.jpg", alt: "Project 7", titleKey: "portfolio.project7" },
+  { id: 8, src: "/portfolio/project-8.jpg", alt: "Project 8", titleKey: "portfolio.project8" },
 ]
 
 export default function Portfolio() {

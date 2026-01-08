@@ -72,24 +72,24 @@ const translations: Record<Language, Record<string, string>> = {
     "portfolio.title": "Our Portfolio",
     "portfolio.subtitle":
       "Showcasing our innovative IT solutions and successful projects delivered to clients across Cambodia",
-    "portfolio.project1": "Enterprise CCTV Monitoring Wall",
-    "portfolio.project1.desc":
-      "Centralized surveillance display providing real-time monitoring across multiple zones for enhanced security and operational awareness.",
-    "portfolio.project2": "Parking Area CCTV & Infrastructure Setup",
-    "portfolio.project2.desc":
-      "Professional installation of security cameras and structured cabling to ensure full coverage in parking and common areas.",
+    "portfolio.project0": "Outdoor CCTV Installation & Perimeter Security",
+    "portfolio.project0.desc": "Outdoor CCTV installation and perimeter security solution.",
+    "portfolio.project1": "CCTV Monitoring System Deployment",
+    "portfolio.project1.desc": "Professional CCTV monitoring system deployment for 24/7 security surveillance.",
+    "portfolio.project2": "Structured Cabling & Infrastructure Setup",
+    "portfolio.project2.desc": "Structured cabling and security infrastructure setup following industry standards.",
     "portfolio.project3": "Server Rack & Network Cabling Deployment",
-    "portfolio.project3.desc":
-      "Structured network cabling and server rack configuration for reliable, scalable, and secure IT infrastructure.",
-    "portfolio.project4": "Indoor CCTV Camera Installation",
-    "portfolio.project4.desc":
-      "Precision installation of indoor surveillance cameras designed for continuous monitoring and optimal coverage.",
-    "portfolio.project5": "High-Level Camera & Device Installation",
-    "portfolio.project5.desc":
-      "Skilled technicians installing security devices at height to ensure optimal positioning and maximum visibility.",
-    "portfolio.project6": "Security Control Room Configuration",
-    "portfolio.project6.desc":
-      "Complete setup of security control systems, integrating CCTV, monitoring displays, and network equipment for centralized management.",
+    "portfolio.project3.desc": "Professional server rack installation and network cabling deployment.",
+    "portfolio.project4": "Indoor Camera & Sensor Installation",
+    "portfolio.project4.desc": "Indoor security camera and sensor installation for enhanced protection.",
+    "portfolio.project5": "Professional Camera Installation at Height",
+    "portfolio.project5.desc": "Professional security camera installation performed by skilled technicians.",
+    "portfolio.project6": "Control Room & System Configuration",
+    "portfolio.project6.desc": "Control room setup and security system configuration.",
+    "portfolio.project7": "Bulk Security Equipment Procurement & Staging",
+    "portfolio.project7.desc": "Bulk security equipment procurement and professional staging.",
+    "portfolio.project8": "Centralized Security System Installation",
+    "portfolio.project8.desc": "Centralized security system installation for efficient management.",
 
     // Clients
     "clients.title": "Our Clients",
@@ -167,23 +167,24 @@ const translations: Record<Language, Record<string, string>> = {
     // Portfolio
     "portfolio.title": "ផលិតផលរបស់យើង",
     "portfolio.subtitle": "បង្ហាញពីដំណោះស្រាយ IT ច្នៃប្រឌិត និងគម្រោងជោគជ័យដែលបានផ្តល់ជូនដល់អតិថិជននៅទូទាំងប្រទេសកម្ពុជា",
-    "portfolio.project1": "ម៉ូនីទ័របង្កើនហេដ្ឋារចនាសម្ព័ន្ធលម្ម",
-    "portfolio.project1.desc":
-      "ការបង្ហាញការត្រួតពិនិត្យកណ្តាលផ្តល់នូវការឧទ្ទមភាពក្នុងលក្ស្ណៈពិតលក្ស្ណៈនៅលើតំបន់ច្រើនសម្រាប់សុវត្ថិភាព និងការយល់ដឹងនៃប្រតិបត្តិការដែលប្រសើរឡើង។",
-    "portfolio.project2": "ការដំឡើងលម្ម CCTV សម្រាប់តំបន់ឈានចេញ",
-    "portfolio.project2.desc":
-      "ការដំឡើងដែលមានការអនុវត្តវិជ្ជាជីវៈនៃកាមេរ៉ាសុវត្ថិភាព និងខ្សែបណ្តាញរចនាសម្ព័ន្ធដើម្បីធានាការគ្របដណ្តប់ពេញលេញក្នុងតំបន់ឈានចេញ និងតំបន់ធម្មតា។",
-    "portfolio.project3": "ការразвёртываниеយានដឹងតម្លៃរចនាសម្ព័ន្ធបណ្តាញ",
-    "portfolio.project3.desc":
-      "ខ្សែបណ្តាញរចនាសម្ព័ន្ធ និងការកំណត់រចនាសម្ព័ន្ធឌុំឆ័ក្រសម្រាប់ហេដ្ឋារចនាសម្ព័ន្ធ IT ដែលដឹងថ្នល់ ពង្រីកបាន និងលម្ងាច។",
-    "portfolio.project4": "ការដំឡើងកាមេរ៉ា CCTV អាផ្ទៃក្នុង",
-    "portfolio.project4.desc":
-      "ការដំឡើងក្នុងលម្អិតលម្អាតនៃកាមេរ៉ាចោលលម្ងាច ដែលរចនាឡើងសម្រាប់ការត្រួតពិនិត្យឥតឈប់ឈរ និងការគ្របដណ្តប់អតិបរមា។",
-    "portfolio.project5": "ការដំឡើងកាមេរ៉ា និងឧបករណ៍រៀងរាល់កំរិត",
-    "portfolio.project5.desc": "អ្នកបច្ចេកទេស្មាត ដំឡើងឧបករណ៍សុវត្ថិភាព នៅកម្រិតកម្ពស់ដើម្បីធានាក្នុងការដាក់ពង្រាយលម្អាត និងលក្ខណៈ ម្នាក់ក្នុង។",
-    "portfolio.project6": "ការកំណត់រចនាសម្ព័ន្ធបន្ទប់វត្ថុបរិវ្ឋានលម្ម",
-    "portfolio.project6.desc":
-      "ការកំណត់នៃប្រព័ន្ធស្វ័យប្រវត្តបន្ទប់វត្ថុបរិវ្ឋាន ដែលរួមបញ្ចូល CCTV បង្ហាញម៉ូនីទ័រ និងឧបករណ៍បណ្តាញសម្រាប់ការគ្របដណ្តប់កណ្តាល។",
+    "portfolio.project0": "ការដំឡើងកាមេរ៉ាសុវត្ថិភាពក្រៅអគារ និងការពារតំបន់",
+    "portfolio.project0.desc": "ការដំឡើងកាមេរ៉ាសុវត្ថិភាពក្រៅអគារ និងការពារតំបន់។",
+    "portfolio.project1": "ការដំឡើងប្រព័ន្ធត្រួតពិនិត្យសុវត្ថិភាព CCTV",
+    "portfolio.project1.desc": "ការដំឡើងប្រព័ន្ធត្រួតពិនិត្យសុវត្ថិភាព CCTV សម្រាប់ការតាមដាន 24/7",
+    "portfolio.project2": "ការរៀបចំខ្សែបណ្តាញ និងហេដ្ឋារចនាសម្ព័ន្ធ",
+    "portfolio.project2.desc": "ការរៀបចំខ្សែបណ្តាញ និងហេដ្ឋារចនាសម្ព័ន្ធសុវត្ថិភាពយ៉ាងមានស្តង់ដារ",
+    "portfolio.project3": "ការដំឡើង Server Rack និងខ្សែបណ្តាញ",
+    "portfolio.project3.desc": "ការដំឡើង Server Rack និងខ្សែបណ្តាញដោយវិជ្ជាជីវៈ",
+    "portfolio.project4": "ការដំឡើងកាមេរ៉ា និងឧបករណ៍សុវត្ថិភាពក្នុងអគារ",
+    "portfolio.project4.desc": "ការដំឡើងកាមេរ៉ា និងឧបករណ៍សុវត្ថិភាពក្នុងអគារ។",
+    "portfolio.project5": "ការដំឡើងកាមេរ៉ាសុវត្ថិភាពដោយក្រុមជំនាញ",
+    "portfolio.project5.desc": "ការដំឡើងកាមេរ៉ាសុវត្ថិភាពដោយក្រុមជំនាញ។",
+    "portfolio.project6": "ការរៀបចំបន្ទប់គ្រប់គ្រង និងកំណត់រចនាសម្ព័ន្ធប្រព័ន្ធ",
+    "portfolio.project6.desc": "ការរៀបចំបន្ទប់គ្រប់គ្រង និងកំណត់រចនាសម្ព័ន្ធប្រព័ន្ធ។",
+    "portfolio.project7": "ការផ្គត់ផ្គង់ និងរៀបចំឧបករណ៍សុវត្ថិភាពជាច្រើន",
+    "portfolio.project7.desc": "ការផ្គត់ផ្គង់ និងរៀបចំឧបករណ៍សុវត្ថិភាពជាច្រើនយ៉ាងមានប្រសិទ្ធភាព។",
+    "portfolio.project8": "ការដំឡើងប្រព័ន្ធសុវត្ថិភាពកណ្តាល",
+    "portfolio.project8.desc": "ការដំឡើងប្រព័ន្ធសុវត្ថិភាពកណ្តាលសម្រាប់ការគ្រប់គ្រងងាយស្រួល។",
 
     // Clients
     "clients.title": "អតិថិជនរបស់យើង",
