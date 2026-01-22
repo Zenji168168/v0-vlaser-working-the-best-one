@@ -5,6 +5,7 @@ import About from "@/components/about"
 import Services from "@/components/services"
 import Portfolio from "@/components/portfolio"
 import Clients from "@/components/clients"
+import Certificates from "@/components/certificates"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import AnimatedBackground from "@/components/animated-background"
@@ -40,6 +41,7 @@ export default function Home() {
         <Services />
         <Portfolio />
         <Clients />
+        <Certificates />
         <Contact />
         <Footer />
       </div>
