@@ -9,6 +9,7 @@ import { useEffect } from "react"
 export default function Certificates() {
   const { language } = useLanguage()
   const [selectedCert, setSelectedCert] = useState<string | null>(null)
+  const [imageError, setImageError] = useState<string | null>(null)
 
   const certificates = [
     {
@@ -91,23 +92,27 @@ export default function Certificates() {
             {certificates.map((cert, index) => (
               <div key={cert.id} className="animate-smooth-fade-up flex flex-col" style={{ animationDelay: `${index * 0.1}s` }}>
                 {/* Certificate Card */}
-                <button
-                  onClick={() => setSelectedCert(cert.id)}
-                  className="relative bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-soft-lg hover-lift flex-1 transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                  aria-label={`Open ${cert.alt} in fullscreen`}
+                <div
+                  className="relative bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-soft-lg hover-lift flex-1 transition-all duration-300"
                 >
                   <div className="relative aspect-[3/4] w-full bg-gradient-to-br from-muted to-secondary/50 flex items-center justify-center p-3">
                     <Image
-                      src={cert.image || "/placeholder.svg"}
+                      src={cert.image}
                       alt={cert.alt}
                       width={350}
                       height={450}
                       className="w-full h-full object-contain"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       priority
+                      unoptimized
+                      onError={() => {
+                        console.log("[v0] Certificate image failed to load:", cert.image)
+                        setImageError(cert.id)
+                      }}
+                      onLoad={() => console.log("[v0] Certificate image loaded:", cert.image)}
                     />
                   </div>
-                </button>
+                </div>
 
                 {/* Certificate Info */}
                 <div className="mt-6 text-center">
@@ -151,6 +156,11 @@ export default function Certificates() {
                   height={650}
                   className="w-full h-full object-contain p-4"
                   priority
+                  unoptimized
+                  onError={() => {
+                    console.log("[v0] Modal certificate image failed to load:", selectedCertData.image)
+                  }}
+                  onLoad={() => console.log("[v0] Modal certificate image loaded successfully")}
                 />
               </div>
 
