@@ -9,6 +9,7 @@ import { useEffect } from "react"
 export default function Certificates() {
   const { language } = useLanguage()
   const [selectedCert, setSelectedCert] = useState<string | null>(null)
+  const [imageError, setImageError] = useState<string | null>(null)
 
   const certificates = [
     {
@@ -98,13 +99,19 @@ export default function Certificates() {
                 >
                   <div className="relative aspect-[3/4] w-full bg-gradient-to-br from-muted to-secondary/50 flex items-center justify-center p-3">
                     <Image
-                      src={cert.image || "/placeholder.svg"}
+                      src={cert.image}
                       alt={cert.alt}
                       width={350}
                       height={450}
                       className="w-full h-full object-contain"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       priority
+                      unoptimized
+                      onError={() => {
+                        console.log("[v0] Certificate image failed to load:", cert.image)
+                        setImageError(cert.id)
+                      }}
+                      onLoad={() => console.log("[v0] Certificate image loaded:", cert.image)}
                     />
                   </div>
                 </button>
@@ -151,6 +158,11 @@ export default function Certificates() {
                   height={650}
                   className="w-full h-full object-contain p-4"
                   priority
+                  unoptimized
+                  onError={() => {
+                    console.log("[v0] Modal certificate image failed to load:", selectedCertData.image)
+                  }}
+                  onLoad={() => console.log("[v0] Modal certificate image loaded successfully")}
                 />
               </div>
 
