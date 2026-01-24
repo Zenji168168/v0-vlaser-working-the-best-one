@@ -2,30 +2,11 @@
 
 import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function Certificates() {
   const { language } = useLanguage()
   const [selectedCert, setSelectedCert] = useState<string | null>(null)
-
-  // Handle ESC key to close modal and prevent body scroll
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSelectedCert(null)
-      }
-    }
-
-    if (selectedCert) {
-      document.addEventListener("keydown", handleEscape)
-      document.body.style.overflow = "hidden"
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape)
-      document.body.style.overflow = "unset"
-    }
-  }, [selectedCert])
 
   const certificates = [
     {
@@ -59,8 +40,7 @@ export default function Certificates() {
 
   const t = content[language as keyof typeof content] || content.en
 
-  // Get certificate data safely
-  const selectedCertData = certificates.find((c) => c.id === selectedCert)
+  const selectedCertData = certificates.find(cert => cert.id === selectedCert)
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-secondary/30">
@@ -79,20 +59,15 @@ export default function Certificates() {
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 w-full max-w-4xl">
             {certificates.map((cert, index) => (
-              <div
-                key={cert.id}
-                className="group cursor-pointer animate-smooth-fade-up flex flex-col"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedCert(cert.id)}
-              >
+              <div key={cert.id} className="animate-smooth-fade-up flex flex-col" style={{ animationDelay: `${index * 0.1}s` }}>
                 {/* Certificate Image */}
-                <div className="relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex-1">
+                <div className="relative bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 flex-1">
                   <Image
                     src={cert.image || "/placeholder.svg"}
                     alt={cert.alt}
                     width={400}
                     height={550}
-                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain p-4"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />
@@ -109,43 +84,6 @@ export default function Certificates() {
             ))}
           </div>
         </div>
-
-        {/* Lightbox Modal */}
-        {selectedCert && selectedCertData && (
-          <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-in fade-in duration-300"
-            onClick={() => setSelectedCert(null)}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Certificate fullscreen view"
-          >
-            <div
-              className="relative w-full max-w-2xl max-h-[90vh] rounded-lg overflow-hidden bg-white animate-in zoom-in-95 duration-300"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {selectedCertData.image && (
-                <Image
-                  src={selectedCertData.image || "/placeholder.svg"}
-                  alt={selectedCertData.alt}
-                  width={800}
-                  height={1100}
-                  className="w-full h-full object-contain"
-                  quality={95}
-                  priority
-                />
-              )}
-              <button
-                onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
-                aria-label="Close certificate"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )
