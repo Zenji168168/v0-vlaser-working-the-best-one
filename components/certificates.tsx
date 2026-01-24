@@ -2,11 +2,30 @@
 
 import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function Certificates() {
   const { language } = useLanguage()
   const [selectedCert, setSelectedCert] = useState<string | null>(null)
+
+  // Handle ESC key to close modal and prevent body scroll
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedCert(null)
+      }
+    }
+
+    if (selectedCert) {
+      document.addEventListener("keydown", handleEscape)
+      document.body.style.overflow = "hidden"
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape)
+      document.body.style.overflow = "unset"
+    }
+  }, [selectedCert])
 
   const certificates = [
     {
@@ -39,6 +58,9 @@ export default function Certificates() {
   }
 
   const t = content[language as keyof typeof content] || content.en
+
+  // Get certificate data safely
+  const selectedCertData = certificates.find((c) => c.id === selectedCert)
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-secondary/30">
@@ -89,23 +111,33 @@ export default function Certificates() {
         </div>
 
         {/* Lightbox Modal */}
-        {selectedCert && (
+        {selectedCert && selectedCertData && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-fade-in"
+            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-in fade-in duration-300"
             onClick={() => setSelectedCert(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Certificate fullscreen view"
           >
-            <div className="relative max-w-2xl w-full max-h-[85vh] rounded-xl overflow-hidden bg-white" onClick={(e) => e.stopPropagation()}>
-              <Image
-                src={certificates.find((c) => c.id === selectedCert)?.image || ""}
-                alt={certificates.find((c) => c.id === selectedCert)?.alt || ""}
-                width={800}
-                height={1000}
-                className="w-full h-full object-contain"
-              />
+            <div
+              className="relative w-full max-w-2xl max-h-[90vh] rounded-lg overflow-hidden bg-white animate-in zoom-in-95 duration-300"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {selectedCertData.image && (
+                <Image
+                  src={selectedCertData.image || "/placeholder.svg"}
+                  alt={selectedCertData.alt}
+                  width={800}
+                  height={1100}
+                  className="w-full h-full object-contain"
+                  quality={95}
+                  priority
+                />
+              )}
               <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full transition-colors"
-                aria-label="Close"
+                className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+                aria-label="Close certificate"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
