@@ -40,6 +40,8 @@ export default function Certificates() {
 
   const t = content[language as keyof typeof content] || content.en
 
+  const selectedCertData = certificates.find(cert => cert.id === selectedCert)
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-secondary/30">
       <div className="max-w-6xl mx-auto">
@@ -57,20 +59,15 @@ export default function Certificates() {
         <div className="flex justify-center items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 w-full max-w-4xl">
             {certificates.map((cert, index) => (
-              <div
-                key={cert.id}
-                className="group cursor-pointer animate-smooth-fade-up flex flex-col"
-                style={{ animationDelay: `${index * 0.1}s` }}
-                onClick={() => setSelectedCert(cert.id)}
-              >
+              <div key={cert.id} className="animate-smooth-fade-up flex flex-col" style={{ animationDelay: `${index * 0.1}s` }}>
                 {/* Certificate Image */}
-                <div className="relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex-1">
+                <div className="relative bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 flex-1">
                   <Image
                     src={cert.image || "/placeholder.svg"}
                     alt={cert.alt}
                     width={400}
                     height={550}
-                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain p-4"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />
@@ -87,33 +84,6 @@ export default function Certificates() {
             ))}
           </div>
         </div>
-
-        {/* Lightbox Modal */}
-        {selectedCert && (
-          <div
-            className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-fade-in"
-            onClick={() => setSelectedCert(null)}
-          >
-            <div className="relative max-w-2xl w-full max-h-[85vh] rounded-xl overflow-hidden bg-white" onClick={(e) => e.stopPropagation()}>
-              <Image
-                src={certificates.find((c) => c.id === selectedCert)?.image || ""}
-                alt={certificates.find((c) => c.id === selectedCert)?.alt || ""}
-                width={800}
-                height={1000}
-                className="w-full h-full object-contain"
-              />
-              <button
-                onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 bg-black/40 hover:bg-black/60 text-white p-2 rounded-full transition-colors"
-                aria-label="Close"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </section>
   )
