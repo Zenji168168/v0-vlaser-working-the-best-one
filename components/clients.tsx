@@ -9,7 +9,7 @@ const clients = [
   { name: "NorthPark Condominium", logo: "/clients/northpark-condo.png" },
   { name: "Caltex Station Sensok", logo: "/clients/caltex.png" },
   { name: "ផ្សារលើក្រុងកំពុងឆ្នាំង", logo: "/clients/market-kampong-chnang.png" },
-  { name: "SENGHAN CO., LTD", logo: "/clients/senghan.png" },
+  { name: "ស្កាយលេន ផនសប", logo: "/clients/skylen-phunsab.png" },
   { name: "ផ្សារស្រែអំបិលខេត្តកោះកុង", logo: "/clients/furniture-store.png" },
   { name: "Ohana Hotel", logo: "/clients/ohana-hotel.png" },
   { name: "MEGABELLE BEAUTY CLINIC", logo: "/clients/megabelle.png" },
