@@ -1,30 +1,39 @@
-# Vlaser Solution Website
+# Vlaser Portfolio Website
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A professional portfolio website showcasing my web development projects.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/meukthareach053-8758s-projects/v0-vlaser-working-the-best-one)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/ldW5H1p6JIX)
+## 🚀 Live Demo
 
-## Overview
+👉 https://v0-vlaser-working-the-best-one.vercel.app
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## 🧰 Tech Stack
 
-## Deployment
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Vercel (Hosting)
 
-Your project is live at:
+## 📌 Features
 
-**[https://vercel.com/meukthareach053-8758s-projects/v0-vlaser-working-the-best-one](https://vercel.com/meukthareach053-8758s-projects/v0-vlaser-working-the-best-one)**
+- Modern UI with responsive layout
+- Dynamic content rendering
+- Interactive UI sections
+- Deployment via Vercel
 
-## Build your app
+## 📌 Screenshots
 
-Continue building your app on:
+(Add screenshots here)
 
-**[https://v0.app/chat/ldW5H1p6JIX](https://v0.app/chat/ldW5H1p6JIX)**
+## 📌 What I Improved
 
-## How It Works
+- Updated navigation components
+- Added client project showcases
+- Enhanced image performance
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 📌 Future Plans
+
+- Add CMS support (Sanity / Contentful)
+- Add SEO meta analytics
+- Add blog page
+
