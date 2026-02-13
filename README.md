@@ -21,9 +21,17 @@ A professional portfolio website showcasing my web development projects.
 - Interactive UI sections
 - Deployment via Vercel
 
-## 📌 Screenshots
+## 📸 Screenshots
 
-(Add screenshots here)
+### Home Page
+![Home](public/screenshots/home.jpg)
+
+### About Page
+![About](public/screenshots/About.jpg)
+
+### Contact Page
+![Contact](public/screenshots/Contact.jpg)
+
 
 ## 📌 What I Improved
 
